@@ -1,0 +1,116 @@
+[
+  {
+    "id": "z1",
+    "name": "Ciudamar",
+    "price": 4.96,
+    "active": true
+  },
+  {
+    "id": "z2",
+    "name": "Punta Gorda",
+    "price": 4.0,
+    "active": true
+  },
+  {
+    "id": "z3",
+    "name": "Veguita de Galo",
+    "price": 0.7,
+    "active": true
+  },
+  {
+    "id": "z4",
+    "name": "Polvorín",
+    "price": 1.8,
+    "active": true
+  },
+  {
+    "id": "z5",
+    "name": "Centro Trocha/Enramada, Barracones/Reloj",
+    "price": 1.4,
+    "active": true
+  },
+  {
+    "id": "z6",
+    "name": "Santa Bárbara",
+    "price": 3.0,
+    "active": true
+  },
+  {
+    "id": "z7",
+    "name": "Micro 7",
+    "price": 6.78,
+    "active": true
+  },
+  {
+    "id": "z8",
+    "name": "Los Pinos",
+    "price": 3.0,
+    "active": true
+  },
+  {
+    "id": "z9",
+    "name": "Alta Vista",
+    "price": 2.48,
+    "active": true
+  },
+  {
+    "id": "z10",
+    "name": "Versalles",
+    "price": 1.67,
+    "active": true
+  },
+  {
+    "id": "z11",
+    "name": "Vista Hermosa",
+    "price": 0.4,
+    "active": true
+  },
+  {
+    "id": "z12",
+    "name": "Altamira",
+    "price": 1.28,
+    "active": true
+  },
+  {
+    "id": "z13",
+    "name": "Alameda y alrededores hasta Ferro Caribe",
+    "price": 1.5,
+    "active": true
+  },
+  {
+    "id": "z14",
+    "name": "Mariana de la Torre",
+    "price": 0.7,
+    "active": true
+  },
+  {
+    "id": "z15",
+    "name": "Nuevo Vista Alegre",
+    "price": 4.0,
+    "active": true
+  },
+  {
+    "id": "z16",
+    "name": "Micro 9",
+    "price": 6.72,
+    "active": true
+  },
+  {
+    "id": "z17",
+    "name": "Dagnesse, Hospital Militar, Cangrejitos",
+    "price": 1.4,
+    "active": true
+  },
+  {
+    "id": "z18",
+    "name": "Arte y Oficio",
+    "price": 2.5,
+    "active": true
+  },
+  {
+    "id": "z19",
+    "name": "18 Planta de Garzón",
+    "price": 2.0,
+    "active": true
+  }
+]

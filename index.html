@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1B5E20">
+<title>Vitality Pets Farm 🐾</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1B5E20; --green2:#2E7D32; --green3:#388E3C; --green4:#4CAF50;
+  --blue:#0D47A1; --blue2:#1565C0; --blue3:#1976D2;
+  --teal:#00695C; --teal2:#00897B;
+  --bg:#F1F8E9; --bg2:#E8F5E9; --card:#fff;
+  --text:#1A2E1A; --text2:#3E5C3E; --text3:#6A8A6A;
+  --border:rgba(46,125,50,.15);
+  --shadow:rgba(27,94,32,.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);font-family:'Inter',sans-serif;color:var(--text);overflow-x:hidden;}
+
+/* ─ HEADER ─ */
+.site-header{
+  background:linear-gradient(135deg,var(--green) 0%,var(--blue2) 100%);
+  padding:0;position:relative;overflow:hidden;
+}
+.site-header::before{content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.header-top{display:flex;align-items:center;gap:14px;padding:16px 16px 0;position:relative;z-index:2;}
+.logo-circle{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.2);
+  border:2px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;
+  font-size:28px;flex-shrink:0;}
+.header-info{flex:1;min-width:0;}
+.business-name{font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;color:#fff;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.business-sub{font-size:12px;color:rgba(255,255,255,.75);margin-top:2px;}
+.rating-row{display:flex;align-items:center;gap:6px;margin-top:4px;}
+.stars{color:#FFD54F;font-size:13px;}
+.rating-text{font-size:12px;color:rgba(255,255,255,.75);}
+.header-cover{height:140px;margin-top:14px;overflow:hidden;position:relative;}
+.header-cover img{width:100%;height:100%;object-fit:cover;display:block;
+  filter:brightness(.7);}
+.cover-overlay{position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(27,94,32,.7) 0%,transparent 60%);}
+.cover-text{position:absolute;bottom:12px;left:16px;right:16px;
+  color:#fff;font-size:12px;line-height:1.5;}
+.delivery-badges{display:flex;gap:8px;flex-wrap:wrap;padding:12px 16px;
+  background:rgba(0,0,0,.2);position:relative;z-index:2;}
+.dbadge{display:flex;align-items:center;gap:5px;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
+  color:#fff;font-size:12px;font-weight:600;padding:5px 10px;border-radius:100px;}
+.dbadge.active::before{content:'';width:7px;height:7px;border-radius:50%;
+  background:#69F0AE;flex-shrink:0;}
+
+/* ─ PROMO BANNER ─ */
+.promo-wrap{background:linear-gradient(135deg,#FF6F00,#F9A825);overflow:hidden;
+  white-space:nowrap;padding:8px 0;}
+.promo-track{display:inline-flex;gap:60px;animation:scroll 20s linear infinite;}
+.promo-track span{font-weight:700;font-size:13px;color:#fff;white-space:nowrap;}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ─ SEARCH ─ */
+.search-wrap{padding:12px 14px;background:#fff;border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:50;}
+.search-box{display:flex;align-items:center;gap:10px;
+  background:var(--bg2);border:1.5px solid var(--border);border-radius:12px;
+  padding:10px 14px;}
+.search-box input{flex:1;border:none;background:none;font-size:14px;
+  font-family:'Inter',sans-serif;color:var(--text);outline:none;}
+.search-box input::placeholder{color:var(--text3);}
+.search-icon{font-size:18px;color:var(--text3);}
+.search-clear{font-size:18px;color:var(--text3);cursor:pointer;display:none;
+  background:none;border:none;padding:0;}
+
+/* ─ CATS ─ */
+.cats-bar{background:#fff;border-bottom:2px solid var(--border);
+  padding:10px 14px;overflow-x:auto;scrollbar-width:none;}
+.cats-bar::-webkit-scrollbar{display:none;}
+.cats-row{display:flex;gap:8px;white-space:nowrap;}
+.cat-btn{display:inline-flex;align-items:center;gap:6px;
+  padding:8px 14px;border-radius:100px;font-size:13px;font-weight:600;
+  background:var(--bg2);border:1.5px solid var(--border);color:var(--text2);
+  cursor:pointer;transition:all .2s;flex-shrink:0;font-family:'Inter',sans-serif;}
+.cat-btn:hover{background:var(--bg);border-color:var(--green3);}
+.cat-btn.active{background:linear-gradient(135deg,var(--green),var(--blue2));
+  color:#fff;border-color:transparent;
+  box-shadow:0 3px 12px rgba(27,94,32,.3);}
+.cat-count{background:rgba(255,255,255,.25);padding:1px 7px;border-radius:100px;
+  font-size:11px;}
+.cat-btn:not(.active) .cat-count{background:rgba(46,125,50,.12);color:var(--green2);}
+
+/* ─ MAIN ─ */
+main{max-width:680px;margin:0 auto;padding:16px 14px 120px;}
+
+/* ─ SECTION HEAD ─ */
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;
+  padding:14px 16px;border-radius:16px;
+  background:linear-gradient(135deg,var(--green),var(--blue2));
+  box-shadow:0 4px 16px var(--shadow);}
+.sec-head-icon{font-size:24px;flex-shrink:0;}
+.sec-head h2{font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;color:#fff;}
+.sec-head p{font-size:12px;color:rgba(255,255,255,.75);margin-top:2px;}
+
+/* ─ SEARCH RESULTS HEADER ─ */
+.search-header{padding:12px 0;font-weight:600;font-size:14px;color:var(--text2);}
+
+/* ─ PRODUCT CARD ─ */
+.prods-grid{display:flex;flex-direction:column;gap:10px;}
+.pcard{background:var(--card);border-radius:16px;overflow:hidden;
+  border:1px solid var(--border);
+  box-shadow:0 2px 8px var(--shadow);
+  transition:transform .2s,box-shadow .2s;display:flex;align-items:stretch;}
+.pcard:hover{transform:translateY(-2px);box-shadow:0 6px 20px var(--shadow);}
+.pcard.unavail{opacity:.55;}
+.pcard-left{width:90px;min-height:90px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:36px;
+  background:linear-gradient(135deg,var(--bg2),var(--bg));}
+.pcard-left img{width:90px;height:90px;object-fit:cover;}
+.pcard-body{flex:1;padding:12px 14px;min-width:0;}
+.pcard-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:5px;}
+.pcard-name{font-weight:700;font-size:14px;color:var(--text);line-height:1.3;}
+.pcard-tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:5px;}
+.tag-popular{background:#FFF8E1;color:#F57F17;border:1px solid #FFE082;
+  font-size:10px;font-weight:700;padding:2px 7px;border-radius:100px;}
+.tag-agotado{background:#FFEBEE;color:#C62828;border:1px solid #FFCDD2;
+  font-size:10px;font-weight:700;padding:2px 7px;border-radius:100px;}
+.pcard-desc{font-size:12px;color:var(--text3);line-height:1.5;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.pcard-footer{display:flex;align-items:center;justify-content:space-between;margin-top:10px;gap:8px;}
+.pcard-price{font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;
+  color:var(--green2);}
+.pcard-add{width:36px;height:36px;border-radius:50%;border:none;
+  background:linear-gradient(135deg,var(--green2),var(--blue2));
+  color:#fff;font-size:22px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 3px 10px rgba(27,94,32,.35);transition:transform .2s,box-shadow .2s;
+  line-height:1;font-family:'Inter',sans-serif;}
+.pcard-add:hover{transform:scale(1.1);box-shadow:0 5px 15px rgba(27,94,32,.45);}
+.pcard-add:active{transform:scale(.95);}
+.pcard-add:disabled{background:#ccc;box-shadow:none;cursor:not-allowed;}
+
+/* ─ CART FAB ─ */
+.cart-fab{position:fixed;bottom:24px;right:18px;z-index:100;
+  width:60px;height:60px;border-radius:50%;border:none;
+  background:linear-gradient(135deg,var(--green),var(--blue2));
+  color:#fff;font-size:24px;cursor:pointer;
+  box-shadow:0 6px 22px rgba(27,94,32,.45);transition:transform .2s;}
+.cart-fab:hover{transform:scale(1.08);}
+.cart-fab:active{transform:scale(.94);}
+.cbadge{position:absolute;top:-3px;right:-3px;background:#FF1744;color:#fff;
+  font-weight:800;font-size:11px;width:21px;height:21px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;}
+.cbadge.hidden{display:none;}
+
+/* ─ WA FAB ─ */
+.wa-fab{position:fixed;bottom:24px;left:18px;z-index:100;
+  width:60px;height:60px;border-radius:50%;border:none;
+  background:linear-gradient(135deg,#1B5E20,#2E7D32);
+  color:#fff;font-size:26px;cursor:pointer;
+  box-shadow:0 6px 22px rgba(27,94,32,.4);
+  text-decoration:none;display:flex;align-items:center;justify-content:center;
+  transition:transform .2s;}
+.wa-fab:hover{transform:scale(1.08);}
+
+/* ─ OVERLAY ─ */
+.overlay{position:fixed;inset:0;z-index:150;opacity:0;pointer-events:none;
+  background:rgba(0,0,0,.45);backdrop-filter:blur(3px);transition:opacity .3s;}
+.overlay.show{opacity:1;pointer-events:all;}
+
+/* ─ CART DRAWER ─ */
+.drawer{position:fixed;bottom:0;left:0;right:0;z-index:200;
+  max-width:680px;margin:0 auto;border-radius:24px 24px 0 0;
+  background:#fff;border-top:3px solid var(--green3);
+  transform:translateY(102%);transition:transform .38s cubic-bezier(.32,.72,0,1);
+  max-height:88vh;overflow-y:auto;}
+.drawer.open{transform:translateY(0);}
+.drawer-inner{padding:16px 16px 40px;}
+.drawer-handle{width:36px;height:4px;background:var(--border);
+  border-radius:2px;margin:0 auto 16px;}
+.drawer-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:20px;
+  color:var(--text);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.ci{display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;
+  background:var(--bg2);border:1px solid var(--border);margin-bottom:8px;}
+.ci-icon{font-size:24px;flex-shrink:0;}
+.ci-info{flex:1;min-width:0;}
+.ci-name{font-weight:600;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.ci-price{font-size:13px;color:var(--text3);margin-top:2px;}
+.ci-ctrl{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.ci-qbtn{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--green3);
+  background:#fff;color:var(--green2);font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-weight:700;
+  font-family:'Inter',sans-serif;line-height:1;transition:all .15s;}
+.ci-qbtn:hover{background:var(--green3);color:#fff;}
+.ci-qty{font-weight:700;font-size:14px;min-width:20px;text-align:center;color:var(--text);}
+.ci-subtotal{font-weight:700;font-size:14px;color:var(--green2);white-space:nowrap;flex-shrink:0;}
+.cart-empty{text-align:center;padding:40px 20px;}
+.cart-empty .icon{font-size:52px;margin-bottom:12px;}
+.cart-empty p{font-size:14px;color:var(--text3);}
+.cart-summary{background:var(--bg2);border-radius:16px;padding:14px 16px;margin:12px 0;}
+.summary-row{display:flex;justify-content:space-between;align-items:center;
+  font-size:14px;color:var(--text2);padding:4px 0;}
+.summary-row.total{border-top:1.5px solid var(--border);margin-top:8px;padding-top:12px;
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;color:var(--green);}
+.checkout-btn{width:100%;padding:15px;border-radius:14px;border:none;
+  background:linear-gradient(135deg,var(--green),var(--blue2));
+  color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;
+  cursor:pointer;box-shadow:0 4px 16px rgba(27,94,32,.35);
+  transition:transform .2s,box-shadow .2s;margin-top:6px;}
+.checkout-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(27,94,32,.45);}
+
+/* ─ MODALS ─ */
+.modal{position:fixed;inset:0;z-index:300;
+  display:flex;align-items:center;justify-content:center;
+  padding:16px;opacity:0;pointer-events:none;transition:opacity .3s;}
+.modal.open{opacity:1;pointer-events:all;}
+.modal-box{background:#fff;border-radius:24px;width:100%;max-width:440px;
+  padding:24px 20px;box-shadow:0 20px 60px rgba(0,0,0,.2);
+  max-height:90vh;overflow-y:auto;}
+.modal-box h3{font-family:'Poppins',sans-serif;font-weight:700;font-size:20px;
+  color:var(--text);margin-bottom:5px;}
+.modal-box .sub{font-size:13px;color:var(--text3);margin-bottom:20px;}
+.flabel{font-weight:600;font-size:13px;color:var(--text2);display:block;margin-bottom:5px;}
+.finput{width:100%;padding:12px 14px;border-radius:12px;font-size:14px;
+  font-family:'Inter',sans-serif;color:var(--text);
+  background:var(--bg2);border:1.5px solid var(--border);
+  outline:none;transition:border-color .2s;margin-bottom:14px;}
+.finput:focus{border-color:var(--green3);}
+.finput-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+select.finput{cursor:pointer;}
+.divider-label{font-size:12px;font-weight:700;color:var(--text3);
+  text-transform:uppercase;letter-spacing:.08em;margin:6px 0 14px;
+  display:flex;align-items:center;gap:8px;}
+.divider-label::before,.divider-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.order-type-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
+.order-type-btn{padding:14px;border-radius:14px;border:2px solid var(--border);
+  background:#fff;cursor:pointer;text-align:center;transition:all .2s;font-family:'Inter',sans-serif;}
+.order-type-btn .ot-icon{font-size:24px;margin-bottom:4px;}
+.order-type-btn .ot-label{font-weight:700;font-size:13px;color:var(--text);}
+.order-type-btn .ot-sub{font-size:11px;color:var(--text3);margin-top:2px;}
+.order-type-btn.selected{border-color:var(--green3);background:var(--bg2);}
+.order-type-btn.selected .ot-label{color:var(--green2);}
+.zone-info{background:var(--bg2);border-radius:12px;padding:12px 14px;
+  margin-bottom:14px;font-size:13px;color:var(--text2);}
+.zone-fee{font-weight:700;color:var(--green2);}
+.mbtns{display:flex;gap:10px;margin-top:4px;}
+.mbtn{flex:1;padding:13px;border-radius:12px;border:2px solid var(--border);
+  background:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:14px;
+  color:var(--text2);cursor:pointer;transition:all .2s;}
+.mbtn:hover{background:var(--bg2);}
+.mbtn.primary{background:linear-gradient(135deg,var(--green),var(--blue2));
+  color:#fff;border-color:transparent;flex:2;
+  box-shadow:0 4px 14px rgba(27,94,32,.35);}
+
+/* ─ RECEIPT ─ */
+.receipt{background:var(--bg2);border-radius:16px;padding:14px 16px;margin:14px 0;
+  border:1px solid var(--border);}
+.receipt-title{font-weight:700;font-size:14px;color:var(--text2);margin-bottom:10px;
+  display:flex;align-items:center;gap:6px;}
+.receipt-item{display:flex;justify-content:space-between;font-size:13px;color:var(--text2);
+  padding:4px 0;}
+.receipt-divider{border:none;border-top:1px dashed var(--border);margin:8px 0;}
+.receipt-total{display:flex;justify-content:space-between;font-family:'Poppins',sans-serif;
+  font-weight:700;font-size:17px;color:var(--green);}
+
+/* ─ CONFIRM ─ */
+.confirm-wrap{text-align:center;padding:10px 0 16px;}
+.confirm-icon{font-size:64px;margin-bottom:16px;animation:pop .5s ease;}
+@keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
+.confirm-wrap h3{margin-bottom:8px;}
+.confirm-wrap p{font-size:14px;color:var(--text3);line-height:1.7;margin-bottom:20px;}
+.confirm-phone{font-weight:700;font-size:16px;color:var(--green2);}
+.wa-confirm-btn{width:100%;padding:14px;border-radius:14px;border:none;
+  background:linear-gradient(135deg,#1B5E20,#2E7D32);
+  color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;
+  cursor:pointer;box-shadow:0 4px 14px rgba(27,94,32,.35);margin-bottom:10px;}
+.close-confirm-btn{width:100%;padding:12px;border-radius:12px;border:2px solid var(--border);
+  background:#fff;font-family:'Poppins',sans-serif;font-weight:600;font-size:14px;
+  color:var(--text2);cursor:pointer;}
+
+/* ─ ADMIN MODAL ─ */
+.admin-modal{position:fixed;inset:0;z-index:400;
+  display:flex;align-items:flex-start;justify-content:center;
+  padding:16px 14px 40px;overflow-y:auto;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+  background:rgba(0,0,0,.5);}
+.admin-modal.open{opacity:1;pointer-events:all;}
+.admin-box{background:#fff;border-radius:24px;width:100%;max-width:520px;
+  margin-top:10px;padding:22px 18px 32px;box-shadow:0 20px 60px rgba(0,0,0,.25);}
+
+/* ADMIN TABS */
+.admin-tabs{display:flex;gap:6px;margin-bottom:18px;overflow-x:auto;scrollbar-width:none;}
+.admin-tab{padding:8px 14px;border-radius:100px;font-size:13px;font-weight:600;
+  background:var(--bg2);border:1.5px solid var(--border);color:var(--text2);
+  cursor:pointer;flex-shrink:0;font-family:'Inter',sans-serif;transition:all .2s;}
+.admin-tab.active{background:linear-gradient(135deg,var(--green),var(--blue2));
+  color:#fff;border-color:transparent;}
+
+.admin-section{display:none;}
+.admin-section.active{display:block;}
+
+/* ADMIN PRODUCT LIST */
+.ap-item{display:flex;align-items:center;gap:10px;padding:12px;
+  border-radius:14px;background:var(--bg2);border:1px solid var(--border);
+  margin-bottom:8px;}
+.ap-icon{font-size:24px;flex-shrink:0;}
+.ap-info{flex:1;min-width:0;}
+.ap-name{font-weight:600;font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.ap-cat{font-size:11.5px;color:var(--text3);margin-top:1px;}
+.ap-price{font-weight:700;font-size:14px;color:var(--green2);flex-shrink:0;}
+.ap-btns{display:flex;gap:5px;flex-shrink:0;}
+.ap-btn{padding:5px 10px;border-radius:8px;font-size:11.5px;font-weight:600;
+  border:1.5px solid var(--border);background:#fff;cursor:pointer;
+  font-family:'Inter',sans-serif;transition:all .15s;color:var(--text2);}
+.ap-btn:hover{background:var(--bg2);}
+.ap-btn.danger{color:#C62828;border-color:#FFCDD2;}
+.ap-btn.toggle-on{background:#E8F5E9;color:#2E7D32;border-color:#A5D6A7;}
+.ap-btn.toggle-off{background:#FFEBEE;color:#C62828;border-color:#FFCDD2;}
+
+/* ZONE ITEM */
+.zone-item{display:flex;align-items:center;gap:10px;padding:10px 12px;
+  border-radius:12px;background:var(--bg2);border:1px solid var(--border);margin-bottom:6px;}
+.zone-name{flex:1;font-size:13px;font-weight:600;color:var(--text);}
+.zone-price{font-weight:700;font-size:13px;color:var(--green2);flex-shrink:0;}
+.zone-status{font-size:11px;padding:2px 8px;border-radius:100px;font-weight:600;flex-shrink:0;}
+.zone-status.on{background:#E8F5E9;color:#2E7D32;}
+.zone-status.off{background:#FFEBEE;color:#C62828;}
+.zone-edit-btn{padding:4px 10px;border-radius:8px;font-size:11.5px;font-weight:600;
+  border:1.5px solid var(--border);background:#fff;cursor:pointer;color:var(--text2);
+  font-family:'Inter',sans-serif;flex-shrink:0;}
+
+/* ─ TOAST ─ */
+.toast{position:fixed;top:16px;left:50%;transform:translateX(-50%) translateY(-70px);
+  z-index:999;padding:11px 20px;border-radius:100px;font-weight:700;font-size:13.5px;
+  color:#fff;background:linear-gradient(135deg,var(--green),var(--blue2));
+  box-shadow:0 6px 20px rgba(27,94,32,.4);transition:transform .35s cubic-bezier(.32,.72,0,1);
+  white-space:nowrap;max-width:calc(100vw - 32px);}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+/* ─ PROD FORM ─ */
+.prod-form-modal{position:fixed;inset:0;z-index:500;
+  display:flex;align-items:flex-start;justify-content:center;
+  padding:16px 14px 40px;overflow-y:auto;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+  background:rgba(0,0,0,.5);}
+.prod-form-modal.open{opacity:1;pointer-events:all;}
+.prod-form-box{background:#fff;border-radius:24px;width:100%;max-width:480px;
+  margin-top:10px;padding:22px 18px 32px;}
+.img-preview-box{width:100%;height:130px;border-radius:14px;
+  border:2px dashed var(--border);display:flex;align-items:center;
+  justify-content:center;margin-bottom:12px;overflow:hidden;cursor:pointer;
+  background:var(--bg2);}
+.img-preview-box img{width:100%;height:100%;object-fit:cover;display:none;}
+.img-preview-box .placeholder{font-size:36px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.grid2 .full{grid-column:1/-1;}
+
+/* ─ EMPTY STATE ─ */
+.empty-state{text-align:center;padding:40px 20px;}
+.empty-state .icon{font-size:48px;margin-bottom:12px;}
+.empty-state p{font-size:14px;color:var(--text3);}
+
+.add-fab{display:flex;align-items:center;gap:6px;padding:10px 16px;
+  border-radius:100px;border:none;font-family:'Poppins',sans-serif;font-weight:700;
+  font-size:13px;background:linear-gradient(135deg,var(--green),var(--blue2));
+  color:#fff;cursor:pointer;box-shadow:0 3px 12px rgba(27,94,32,.35);}
+
+.token-section{background:var(--bg2);border-radius:14px;padding:14px;margin-bottom:16px;}
+.token-section h4{font-weight:700;font-size:14px;color:var(--text2);margin-bottom:6px;}
+.token-section p{font-size:12px;color:var(--text3);margin-bottom:10px;}
+.token-row{display:flex;gap:8px;}
+.token-row input{flex:1;font-size:13px;}
+.token-row button{padding:11px 14px;font-size:13px;border-radius:10px;border:none;
+  background:linear-gradient(135deg,var(--green),var(--blue2));
+  color:#fff;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;flex-shrink:0;}
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast"></div>
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-top">
+    <div class="logo-circle">🐾</div>
+    <div class="header-info">
+      <div class="business-name">Vitality Pets Farm</div>
+      <div class="business-sub">Salud Veterinaria con Compromiso</div>
+      <div class="rating-row">
+        <span class="stars">★★★★★</span>
+        <span class="rating-text">5.0 · Santiago de Cuba</span>
+      </div>
+    </div>
+  </div>
+  <div class="header-cover">
+    <div style="width:100%;height:100%;background:linear-gradient(135deg,#1B5E20,#0D47A1);
+      display:flex;align-items:center;justify-content:center;font-size:64px;">
+      🐾🌿💊
+    </div>
+    <div class="cover-overlay"></div>
+    <div class="cover-text">
+      ✔ Productos certificados &nbsp;·&nbsp; ✔ Asesoría técnica &nbsp;·&nbsp; ✔ Mejores precios del mercado
+    </div>
+  </div>
+  <div class="delivery-badges">
+    <span class="dbadge active">🛵 Domicilio disponible</span>
+    <span class="dbadge active">🏪 Recogida en tienda</span>
+    <span class="dbadge">💲 Pago en USD o MLC</span>
+  </div>
+</header>
+
+<!-- PROMO BANNER -->
+<div class="promo-wrap">
+  <div class="promo-track">
+    <span>🏷️ 25% DESCUENTO en Desparasitantes, Vitaminas y Antibióticos · Solo pagos en efectivo</span>
+    <span>🏷️ 25% DESCUENTO en Desparasitantes, Vitaminas y Antibióticos · Solo pagos en efectivo</span>
+    <span>🏷️ 25% DESCUENTO en Desparasitantes, Vitaminas y Antibióticos · Solo pagos en efectivo</span>
+    <span>🏷️ 25% DESCUENTO en Desparasitantes, Vitaminas y Antibióticos · Solo pagos en efectivo</span>
+  </div>
+</div>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="Buscar productos..." oninput="handleSearch()"/>
+    <button class="search-clear" id="search-clear" onclick="clearSearch()">✕</button>
+  </div>
+</div>
+
+<!-- CATS -->
+<div class="cats-bar">
+  <div class="cats-row" id="cats-row"></div>
+</div>
+
+<!-- MAIN -->
+<main id="main-content"></main>
+
+<!-- WHATSAPP FAB -->
+<a class="wa-fab" href="https://wa.me/5355550342" target="_blank">💬</a>
+
+<!-- CART FAB -->
+<button class="cart-fab" onclick="openCart()">
+  🛒<span class="cbadge hidden" id="cbadge">0</span>
+</button>
+
+<!-- CART DRAWER -->
+<div class="drawer" id="cart-drawer">
+  <div class="drawer-inner">
+    <div class="drawer-handle"></div>
+    <div class="drawer-title">🛒 Mi Carrito</div>
+    <div id="cart-list"></div>
+    <div id="cart-foot" style="display:none">
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal productos</span>
+          <span id="cart-subtotal">0.00 USD</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total estimado</span>
+          <span id="cart-total">0.00 USD</span>
+        </div>
+      </div>
+      <button class="checkout-btn" onclick="openOrderForm()">Realizar Pedido →</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PEDIDO -->
+<div class="modal" id="order-modal">
+  <div class="modal-box">
+    <h3>📋 Datos del Pedido</h3>
+    <p class="sub">Completa tus datos para procesar el pedido</p>
+    <label class="flabel">Nombre completo</label>
+    <input class="finput" type="text" id="o-name" placeholder="Ej: Orlando García"/>
+    <label class="flabel">Número de teléfono</label>
+    <input class="finput" type="tel" id="o-phone" placeholder="Ej: 5 6172305"/>
+    <div class="divider-label">Forma de entrega</div>
+    <div class="order-type-btns">
+      <div class="order-type-btn selected" id="btn-domicilio" onclick="selectType('domicilio')">
+        <div class="ot-icon">🛵</div>
+        <div class="ot-label">Domicilio</div>
+        <div class="ot-sub">Entrega en tu zona</div>
+      </div>
+      <div class="order-type-btn" id="btn-recogida" onclick="selectType('recogida')">
+        <div class="ot-icon">🏪</div>
+        <div class="ot-label">Recogida</div>
+        <div class="ot-sub">Recoges en tienda</div>
+      </div>
+    </div>
+    <div id="domicilio-fields">
+      <label class="flabel">Zona de entrega</label>
+      <select class="finput" id="o-zone" onchange="updateZoneFee()">
+        <option value="">— Selecciona tu zona —</option>
+      </select>
+      <div class="zone-info" id="zone-info" style="display:none">
+        Costo de domicilio a esta zona: <span class="zone-fee" id="zone-fee-display"></span>
+      </div>
+      <label class="flabel">Dirección de entrega</label>
+      <input class="finput" type="text" id="o-address" placeholder="Ej: Calle Terraza #157 e/ 5ta y 7ma"/>
+    </div>
+    <label class="flabel">Aclaración al vendedor (opcional)</label>
+    <input class="finput" type="text" id="o-note" placeholder="Ej: Llamar cuando esté afuera"/>
+    <div id="order-receipt" style="display:none">
+      <div class="divider-label">Resumen del pedido</div>
+      <div class="receipt">
+        <div class="receipt-title">🧾 Detalle</div>
+        <div id="receipt-items"></div>
+        <hr class="receipt-divider"/>
+        <div class="receipt-item" id="receipt-delivery" style="display:none">
+          <span>🛵 Domicilio</span>
+          <span id="receipt-delivery-val"></span>
+        </div>
+        <div class="receipt-total">
+          <span>💰 Total a pagar</span>
+          <span id="receipt-total"></span>
+        </div>
+      </div>
+    </div>
+    <div class="mbtns">
+      <button class="mbtn" onclick="closeOrderForm()">Cancelar</button>
+      <button class="mbtn primary" onclick="confirmOrder()">Ver resumen →</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL CONFIRMACIÓN -->
+<div class="modal" id="confirm-modal">
+  <div class="modal-box">
+    <div class="confirm-wrap">
+      <div class="confirm-icon">🎉</div>
+      <h3>¡Pedido Listo!</h3>
+      <p>Tu pedido está preparado. Toca el botón para enviarlo al vendedor por WhatsApp.</p>
+      <button class="wa-confirm-btn" id="wa-send-btn">
+        💬 Enviar pedido por WhatsApp
+      </button>
+      <button class="close-confirm-btn" onclick="closeConfirm()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN MODAL -->
+<div class="admin-modal" id="admin-modal">
+  <div class="admin-box">
+    <div id="admin-login-view" style="text-align:center;padding:20px 0;">
+      <div style="font-size:52px;margin-bottom:16px">🔒</div>
+      <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;color:var(--text);margin-bottom:6px">Panel Admin</div>
+      <div style="font-size:13px;color:var(--text3);margin-bottom:20px">Vitality Pets Farm</div>
+      <input class="finput" type="password" id="admin-pass" placeholder="Contraseña"
+        style="text-align:center;letter-spacing:.2em;max-width:220px;margin:0 auto 10px;"
+        onkeydown="if(event.key==='Enter')doLogin()"/>
+      <div style="color:#C62828;font-size:13px;font-weight:600;display:none;margin-bottom:10px" id="pass-err">❌ Contraseña incorrecta</div>
+      <div style="display:flex;gap:10px;justify-content:center">
+        <button class="mbtn primary" style="max-width:160px" onclick="doLogin()">Entrar</button>
+        <button class="mbtn" style="max-width:120px" onclick="closeAdmin()">Cancelar</button>
+      </div>
+    </div>
+    <div id="admin-panel-view" style="display:none">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;color:var(--text)">👑 Panel Admin</div>
+        <button onclick="closeAdmin()" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text3)">✕</button>
+      </div>
+      <div class="token-section">
+        <h4>🔑 Token GitHub</h4>
+        <p>Para guardar cambios en el catálogo</p>
+        <div class="token-row">
+          <input class="finput" type="password" id="gh-token-input" placeholder="ghp_..." style="margin:0"/>
+          <button onclick="saveToken()">Guardar</button>
+        </div>
+        <div style="font-size:11.5px;color:var(--green3);margin-top:6px" id="token-status"></div>
+      </div>
+      <div class="admin-tabs">
+        <button class="admin-tab active" onclick="switchAdminTab('productos')">📦 Productos</button>
+        <button class="admin-tab" onclick="switchAdminTab('categorias')">📁 Categorías</button>
+        <button class="admin-tab" onclick="switchAdminTab('zonas')">🛵 Zonas</button>
+        <button class="admin-tab" onclick="switchAdminTab('banner')">📢 Banner</button>
+        <button class="admin-tab" onclick="switchAdminTab('personalizacion')">🎨 Diseño</button>
+      </div>
+      <!-- PRODUCTOS -->
+      <div class="admin-section active" id="tab-productos">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <div style="font-size:13px;color:var(--text3)" id="prod-count"></div>
+          <button class="add-fab" onclick="openProdForm(null)">+ Agregar producto</button>
+        </div>
+        <input class="finput" type="text" id="admin-search" placeholder="Buscar producto..." style="margin-bottom:10px" oninput="renderAdminProds()"/>
+        <div id="admin-prod-list"></div>
+      </div>
+      <!-- CATEGORÍAS -->
+      <div class="admin-section" id="tab-categorias">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <div style="font-size:13px;color:var(--text3)" id="cat-count"></div>
+          <button class="add-fab" onclick="openCatForm(null)">+ Agregar categoría</button>
+        </div>
+        <div id="admin-cat-list"></div>
+      </div>
+      <!-- ZONAS -->
+      <div class="admin-section" id="tab-zonas">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <div style="font-size:13px;color:var(--text3)">Zonas de entrega en Santiago de Cuba</div>
+          <button class="add-fab" onclick="openZoneForm(null)">+ Agregar zona</button>
+        </div>
+        <div id="admin-zone-list"></div>
+      </div>
+      <!-- BANNER -->
+      <div class="admin-section" id="tab-banner">
+        <label class="flabel">Texto del banner promocional</label>
+        <input class="finput" type="text" id="banner-text" placeholder="Ej: 25% DESCUENTO en Vitaminas"/>
+        <button class="mbtn primary" style="width:100%;margin-top:4px" onclick="saveBanner()">💾 Guardar banner</button>
+      </div>
+      <!-- PERSONALIZACIÓN -->
+      <div class="admin-section" id="tab-personalizacion">
+        <div style="font-size:13px;color:var(--text3);margin-bottom:14px">
+          Personaliza la apariencia de tu página. Los cambios se guardan en GitHub y se ven en segundos.
+        </div>
+        <!-- Foto de portada -->
+        <label class="flabel">📸 Foto de portada</label>
+        <div class="img-preview-box" id="cover-preview-box" onclick="document.getElementById('cover-img-input').click()"
+          style="height:160px;margin-bottom:12px;">
+          <img id="cover-img-preview" alt="portada" style="width:100%;height:100%;object-fit:cover;display:none;border-radius:14px"/>
+          <div id="cover-placeholder" style="text-align:center;color:var(--text3);">
+            <div style="font-size:36px;margin-bottom:8px">📷</div>
+            <div style="font-size:13px;font-weight:600">Toca para subir foto de portada</div>
+            <div style="font-size:11px;margin-top:4px">JPG o PNG, máx 2MB</div>
+          </div>
+        </div>
+        <input type="file" id="cover-img-input" accept="image/*" style="display:none" onchange="previewCover()"/>
+        <!-- Logo -->
+        <label class="flabel">🖼️ Logo (emoji o imagen)</label>
+        <div style="display:flex;gap:10px;margin-bottom:14px;align-items:center">
+          <div class="img-preview-box" id="logo-preview-box" onclick="document.getElementById('logo-img-input').click()"
+            style="width:80px;height:80px;flex-shrink:0;border-radius:50%">
+            <img id="logo-img-preview" alt="logo" style="width:100%;height:100%;object-fit:cover;display:none;border-radius:50%"/>
+            <div id="logo-placeholder" style="font-size:32px">🐾</div>
+          </div>
+          <input type="file" id="logo-img-input" accept="image/*" style="display:none" onchange="previewLogo()"/>
+          <div style="flex:1">
+            <label class="flabel" style="margin-bottom:5px">O usa un emoji como logo</label>
+            <input class="finput" type="text" id="logo-emoji" placeholder="🐾" maxlength="2"
+              style="font-size:28px;text-align:center;width:70px;margin:0"/>
+          </div>
+        </div>
+        <!-- Nombre y descripción -->
+        <label class="flabel">🏪 Nombre del negocio</label>
+        <input class="finput" type="text" id="biz-name" placeholder="Ej: Vitality Pets Farm"/>
+        <label class="flabel">📝 Descripción corta</label>
+        <input class="finput" type="text" id="biz-desc" placeholder="Ej: Salud Veterinaria con Compromiso"/>
+        <label class="flabel">📍 Ciudad / Ubicación</label>
+        <input class="finput" type="text" id="biz-location" placeholder="Ej: Santiago de Cuba"/>
+        <label class="flabel">📱 WhatsApp de contacto</label>
+        <input class="finput" type="text" id="biz-phone" placeholder="Ej: 5355550342"/>
+        <!-- Badges de entrega -->
+        <label class="flabel">🏷️ Badges de entrega</label>
+        <input class="finput" type="text" id="biz-badge1" placeholder="Ej: Domicilio disponible"/>
+        <input class="finput" type="text" id="biz-badge2" placeholder="Ej: Recogida en tienda"/>
+        <input class="finput" type="text" id="biz-badge3" placeholder="Ej: Pago en USD o MLC"/>
+        <button class="mbtn primary" style="width:100%;padding:14px;font-size:15px" onclick="savePersonalizacion()">
+          💾 Guardar personalización
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT FORM MODAL -->
+<div class="prod-form-modal" id="prod-form-modal">
+  <div class="prod-form-box">
+    <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;margin-bottom:18px" id="pf-title">Agregar Producto</div>
+    <div class="img-preview-box" onclick="document.getElementById('pf-img').click()">
+      <img id="pf-preview" alt="preview"/>
+      <div class="placeholder" id="pf-placeholder">📷</div>
+    </div>
+    <input type="file" id="pf-img" accept="image/*" style="display:none" onchange="previewImg()"/>
+    <div class="grid2">
+      <div class="full">
+        <label class="flabel">Nombre del producto</label>
+        <input class="finput" type="text" id="pf-name" placeholder="Ej: Ivermectina 1%"/>
+      </div>
+      <div>
+        <label class="flabel">Categoría</label>
+        <select class="finput" id="pf-cat"></select>
+      </div>
+      <div>
+        <label class="flabel">Precio (USD)</label>
+        <input class="finput" type="number" id="pf-price" placeholder="0.00" min="0" step="0.01"/>
+      </div>
+      <div>
+        <label class="flabel">Emoji (icono)</label>
+        <input class="finput" type="text" id="pf-emoji" placeholder="💊" maxlength="2"
+          style="font-size:22px;text-align:center"/>
+      </div>
+      <div class="full">
+        <label class="flabel">Descripción</label>
+        <textarea class="finput" id="pf-desc" placeholder="Descripción del producto..." rows="3" style="resize:vertical"></textarea>
+      </div>
+      <div>
+        <label class="flabel">Disponibilidad</label>
+        <select class="finput" id="pf-avail">
+          <option value="true">✅ Disponible</option>
+          <option value="false">❌ Agotado</option>
+        </select>
+      </div>
+      <div>
+        <label class="flabel">Popular</label>
+        <select class="finput" id="pf-popular">
+          <option value="false">No</option>
+          <option value="true">⭐ Sí</option>
+        </select>
+      </div>
+    </div>
+    <div class="mbtns" style="margin-top:14px">
+      <button class="mbtn" onclick="closeProdForm()">Cancelar</button>
+      <button class="mbtn primary" onclick="saveProd()">💾 Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- CAT FORM -->
+<div class="prod-form-modal" id="cat-form-modal">
+  <div class="prod-form-box">
+    <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;margin-bottom:18px" id="cf-title">Agregar Categoría</div>
+    <div class="grid2">
+      <div class="full">
+        <label class="flabel">Nombre</label>
+        <input class="finput" type="text" id="cf-name" placeholder="Ej: Vitaminas"/>
+      </div>
+      <div>
+        <label class="flabel">Icono (emoji)</label>
+        <input class="finput" type="text" id="cf-icon" placeholder="💊" maxlength="2"
+          style="font-size:22px;text-align:center"/>
+      </div>
+      <div class="full">
+        <label class="flabel">Descripción</label>
+        <input class="finput" type="text" id="cf-desc" placeholder="Descripción de la categoría"/>
+      </div>
+    </div>
+    <div class="mbtns" style="margin-top:14px">
+      <button class="mbtn" onclick="closeCatForm()">Cancelar</button>
+      <button class="mbtn primary" onclick="saveCat()">💾 Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ZONE FORM -->
+<div class="prod-form-modal" id="zone-form-modal">
+  <div class="prod-form-box">
+    <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;margin-bottom:18px" id="zf-title">Agregar Zona</div>
+    <label class="flabel">Nombre de la zona</label>
+    <input class="finput" type="text" id="zf-name" placeholder="Ej: Vista Alegre"/>
+    <label class="flabel">Precio del domicilio (USD)</label>
+    <input class="finput" type="number" id="zf-price" placeholder="0.00" min="0" step="0.01"/>
+    <label class="flabel">Estado</label>
+    <select class="finput" id="zf-active">
+      <option value="true">✅ Activa</option>
+      <option value="false">❌ Inactiva</option>
+    </select>
+    <div class="mbtns" style="margin-top:14px">
+      <button class="mbtn" onclick="closeZoneForm()">Cancelar</button>
+      <button class="mbtn primary" onclick="saveZone()">💾 Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN TRIGGER (oculto) -->
+<div style="position:fixed;bottom:90px;left:50%;transform:translateX(-50%);z-index:90;opacity:0" id="admin-trigger">
+  <button onclick="openAdmin()" style="background:none;border:none;width:60px;height:30px;cursor:pointer"></button>
+</div>
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:89;
+  display:flex;justify-content:center;padding:6px;
+  background:rgba(255,255,255,.9);border-top:1px solid var(--border);backdrop-filter:blur(10px)">
+  <button onclick="openAdmin()" style="background:none;border:none;font-size:11px;
+    color:var(--text3);cursor:pointer;font-family:Inter,sans-serif;padding:4px 12px;">
+    👑 Panel Admin
+  </button>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════
+   CONFIGURACIÓN
+═══════════════════════════════════════════════ */
+const WA_NUMBER  = "5355550342";
+const ADMIN_PASS = "vitality2024";
+const GH_REPO    = "joseitoramirez/vitality-pets-farm";
+const GH_CAT     = "catalog.json";
+const GH_ZONES    = "zones.json";
+const GH_SETTINGS = "settings.json";
+const GH_RAW     = `https://raw.githubusercontent.com/${GH_REPO}/main/`;
+const GH_API     = `https://api.github.com/repos/${GH_REPO}/contents/`;
+
+/* ═══ ESTADO ═══ */
+let catalog = {"categories": [{"id": "desparasitantes", "name": "Desparasitantes", "icon": "💊", "desc": "Desparasitantes para animales de granja y compañía", "color": "#388E3C"}, {"id": "vitaminas", "name": "Vitaminas", "icon": "🧪", "desc": "Vitaminas para animales de granja y compañía", "color": "#0288D1"}, {"id": "antibioticos", "name": "Antibióticos", "icon": "💉", "desc": "Antibióticos para animales de granja y compañía", "color": "#7B1FA2"}, {"id": "vacunas", "name": "Vacunas", "icon": "🔬", "desc": "Vacunas veterinarias", "color": "#E64A19"}, {"id": "antinflamatorios", "name": "Antiinflamatorios", "icon": "🩺", "desc": "Antiinflamatorios para animales de granja y compañía", "color": "#00838F"}, {"id": "antiparasitarios", "name": "Antiparasitarios externos", "icon": "🛡️", "desc": "Control de ectoparásitos", "color": "#558B2F"}, {"id": "antihistaminico", "name": "Antihistamínico", "icon": "💆", "desc": "Antihistamínicos veterinarios", "color": "#AD1457"}, {"id": "anticonvulsivos", "name": "Anticonvulsivos", "icon": "⚡", "desc": "Anticonvulsivos veterinarios", "color": "#4527A0"}, {"id": "anestesicos", "name": "Anestésicos", "icon": "😴", "desc": "Anestésicos veterinarios", "color": "#37474F"}, {"id": "antiespasmadico", "name": "Antiespasmódico", "icon": "🫀", "desc": "Antiespasmódicos veterinarios", "color": "#BF360C"}, {"id": "estimulantes", "name": "Estimulantes Metabólicos", "icon": "⚡", "desc": "Estimulantes del metabolismo", "color": "#F57F17"}, {"id": "anabolicos", "name": "Anabólicos", "icon": "💪", "desc": "Anabólicos veterinarios", "color": "#1B5E20"}, {"id": "otica", "name": "Ótica/Oftalmológica", "icon": "👁️", "desc": "Cuidado de oídos y ojos", "color": "#006064"}, {"id": "alimentos", "name": "Alimentos", "icon": "🥣", "desc": "Alimentos para mascotas", "color": "#E65100"}, {"id": "micelanea", "name": "Miscelánea", "icon": "🧴", "desc": "Productos de aseo, higiene y cuidado", "color": "#4A148C"}, {"id": "accesorios", "name": "Accesorios y Juguetes", "icon": "🎾", "desc": "Accesorios, correas, pecheras y juguetes", "color": "#880E4F"}, {"id": "control_plagas", "name": "Control de Plagas", "icon": "🐀", "desc": "Rodenticidas y control de plagas", "color": "#4E342E"}, {"id": "mundo_acuario", "name": "Mundo Acuario", "icon": "🐟", "desc": "Todo para el mundo de los peces", "color": "#01579B"}, {"id": "otros", "name": "Otros Productos", "icon": "📦", "desc": "Productos varios veterinarios", "color": "#546E7A"}], "products": [{"id": "d1", "name": "Ivermex Premix sobre 20G", "category": "desparasitantes", "price": 3.2, "desc": "Ivermectina para prevención y tratamiento de parasitosis internas y externas. Dosis oral en alimento. Amplio espectro.", "available": true, "popular": false, "image": null}, {"id": "d2", "name": "Pet-Max Adulto 6 tabletas", "category": "desparasitantes", "price": 1.45, "desc": "Endoparasiticida de amplio espectro para caninos y felinos. Ivermectina + Albendazol + Prazicuantel. 1 tableta/10kg.", "available": true, "popular": false, "image": null}, {"id": "d3", "name": "BioVermiCan 1 tableta", "category": "desparasitantes", "price": 0.72, "desc": "Combinación sinérgica de antiparasitarios. 1 tableta para 15-20 kg. Albendazol 300mg + Ivermectina 3mg.", "available": true, "popular": true, "image": null}, {"id": "d4", "name": "Levamisol 12% 250ml", "category": "desparasitantes", "price": 40.0, "desc": "Desparasitante de amplio espectro inyectable. Elimina parásitos pulmonares y gastrointestinales en bovinos, caprinos y ovinos.", "available": false, "popular": false, "image": null}, {"id": "d5", "name": "Iver-Closan 250ml", "category": "desparasitantes", "price": 72.0, "desc": "Antiparasitario combinado Ivermectina + Closantel. Control de fasciola hepática y parásitos gastrointestinales.", "available": false, "popular": false, "image": null}, {"id": "d6", "name": "BioVermiCan 30 tabletas", "category": "desparasitantes", "price": 18.0, "desc": "Frasco de 30 tabletas. Combinación de Albendazol e Ivermectina. Para perros y gatos.", "available": true, "popular": false, "image": null}, {"id": "v1", "name": "Vitha Tabs SB", "category": "vitaminas", "price": 0.82, "desc": "Complemento multivitamínico y mineral para perros. Con Vitamina E, A, D, complejo B, calcio, zinc, hierro y más.", "available": false, "popular": false, "image": null}, {"id": "v2", "name": "Vetri Cap 60 tabletas", "category": "vitaminas", "price": 33.25, "desc": "Suplemento de calcio y fósforo con Vitamina D para perros y gatos. Previene desmineralización ósea.", "available": false, "popular": false, "image": null}, {"id": "v3", "name": "Complenay B12 100ml", "category": "vitaminas", "price": 20.25, "desc": "Estimulante, multivitamínico y hematopoyético. Complejo B en dosis altas + Vitamina B12. Inyectable.", "available": false, "popular": false, "image": null}, {"id": "v4", "name": "B12 5500 100ml", "category": "vitaminas", "price": 14.0, "desc": "Vitamina B12 inyectable. Esencial para el funcionamiento celular. Antianémico y hematopoyético.", "available": true, "popular": false, "image": null}, {"id": "v5", "name": "Complejo ADE inyectable", "category": "vitaminas", "price": 8.5, "desc": "Vitaminas A, D y E inyectables. Esenciales para el crecimiento, visión, sistema inmune y reproducción.", "available": true, "popular": false, "image": null}, {"id": "ab1", "name": "Otrozol 500 inyectable 100ml", "category": "antibioticos", "price": 9.0, "desc": "Metronidazol 500mg. Tratamiento de infecciones por bacterias anaerobias. Tracto respiratorio, óseo, articular.", "available": true, "popular": false, "image": null}, {"id": "ab2", "name": "Enrotrim 10% 1L", "category": "antibioticos", "price": 78.0, "desc": "Enrofloxacina + Trimetoprim oral. Tratamiento de infecciones del tracto digestivo y respiratorio en aves.", "available": true, "popular": false, "image": null}, {"id": "ab3", "name": "Neumo Espectol 20g", "category": "antibioticos", "price": 3.0, "desc": "Combinación sinérgica antibacteriana con analgésico, antipirético y expectorante. Enfermedades respiratorias.", "available": true, "popular": false, "image": null}, {"id": "ab4", "name": "Ceftibio RTU 100ml", "category": "antibioticos", "price": 25.0, "desc": "Ceftiofur + Diclofenaco inyectable. Potente antineumónico de amplio espectro. Enfermedades respiratorias agudas.", "available": true, "popular": false, "image": null}, {"id": "ab5", "name": "Amoxicilina 15% 100ml", "category": "antibioticos", "price": 12.0, "desc": "Amoxicilina inyectable de amplio espectro. Infecciones respiratorias, digestivas y urogenitales.", "available": true, "popular": false, "image": null}, {"id": "ab6", "name": "Penicilina G sódica", "category": "antibioticos", "price": 4.5, "desc": "Antibiótico bactericida. Tratamiento de infecciones por microorganismos sensibles a la penicilina.", "available": true, "popular": false, "image": null}, {"id": "vc1", "name": "Vacuna Antirrábica", "category": "vacunas", "price": 5.0, "desc": "Vacuna contra la rabia para caninos y felinos. Protección anual obligatoria.", "available": true, "popular": false, "image": null}, {"id": "vc2", "name": "Vacuna Parvovirus canino", "category": "vacunas", "price": 8.0, "desc": "Protección contra el parvovirus canino. Enfermedad altamente contagiosa y mortal.", "available": true, "popular": false, "image": null}, {"id": "vc3", "name": "Vacuna polivalente canina", "category": "vacunas", "price": 12.0, "desc": "Protección múltiple: Moquillo, Hepatitis, Parvovirus, Parainfluenza y Leptospirosis.", "available": true, "popular": false, "image": null}, {"id": "vc4", "name": "Vacuna triple felina", "category": "vacunas", "price": 10.0, "desc": "Protección para gatos: Panleucopenia, Rinotraqueitis y Calicivirus felino.", "available": true, "popular": false, "image": null}, {"id": "ai1", "name": "Dolatac 30 tabletas", "category": "antinflamatorios", "price": 9.0, "desc": "Antiinflamatorio no esteroidal. Tratamiento de estados inflamatorios y dolorosos. 1 tableta/5kg.", "available": true, "popular": false, "image": null}, {"id": "ai2", "name": "BIO DEXAVET 10ml", "category": "antinflamatorios", "price": 3.4, "desc": "Dexametasona inyectable. Glucocorticoide de acción prolongada para procesos inflamatorios. 1ml/50kg.", "available": true, "popular": false, "image": null}, {"id": "ai3", "name": "Ketocorodol 100ml", "category": "antinflamatorios", "price": 16.0, "desc": "Ketorolaco analgésico, antipirético y antiinflamatorio inyectable. Para mastitis, neumonías, cólicos.", "available": true, "popular": false, "image": null}, {"id": "ai4", "name": "Meloxican razas pequeñas 20 tabs", "category": "antinflamatorios", "price": 5.0, "desc": "Meloxicam 0.2mg para caninos pequeños. Otitis, traumatismos, artritis. Oral, 1 tableta/1-1.5kg.", "available": true, "popular": false, "image": null}, {"id": "ai5", "name": "Carprofeno 50mg 14 tabletas", "category": "antinflamatorios", "price": 7.5, "desc": "AINE para perros. Alivio del dolor postoperatorio y crónico. Artritis, displasia de cadera.", "available": true, "popular": false, "image": null}, {"id": "ap1", "name": "Bovitraz 12.5% 100ml", "category": "antiparasitarios", "price": 18.5, "desc": "Amitraz garrapaticida, sarnicida y piojicida. Para bovinos, porcinos, ovinos y caninos. Aspersión o baño.", "available": true, "popular": false, "image": null}, {"id": "ap2", "name": "Pipetas Bovitraz 12.5%", "category": "antiparasitarios", "price": 5.0, "desc": "Pipetas de Amitraz 12.5%. Control de garrapatas, ácaros y piojos. Aplicación tópica.", "available": true, "popular": false, "image": null}, {"id": "ap3", "name": "Ectoline Pour On 1L", "category": "antiparasitarios", "price": 83.0, "desc": "Fipronil 10mg/ml. Insecticida y acaricida de larga acción hasta 35 días. Garrapatas, moscas, piojos.", "available": false, "popular": false, "image": null}, {"id": "ap4", "name": "Frontline Plus pipeta", "category": "antiparasitarios", "price": 8.0, "desc": "Fipronil + S-Metopreno. Control de pulgas, garrapatas y piojos. Efecto hasta 30 días.", "available": true, "popular": true, "image": null}, {"id": "ah1", "name": "Difenhidramina 50mg 10 tabs", "category": "antihistaminico", "price": 3.0, "desc": "Antihistamínico para reacciones alérgicas. Urticaria, dermatitis alérgica, prurito.", "available": true, "popular": false, "image": null}, {"id": "ah2", "name": "Clorfeniramina inyectable", "category": "antihistaminico", "price": 4.5, "desc": "Antihistamínico inyectable de acción rápida. Reacciones anafilácticas, alergias agudas.", "available": true, "popular": false, "image": null}, {"id": "ah3", "name": "Loratadina veterinaria", "category": "antihistaminico", "price": 5.0, "desc": "Antihistamínico de segunda generación. Sin sedación. Dermatitis, rinitis alérgica.", "available": true, "popular": false, "image": null}, {"id": "ac1", "name": "Fenobarbital 30mg 30 tabs", "category": "anticonvulsivos", "price": 8.0, "desc": "Anticonvulsivo para epilepsia canina. Control de convulsiones y crisis epilépticas.", "available": true, "popular": false, "image": null}, {"id": "an1", "name": "Ketamina 50mg/ml 10ml", "category": "anestesicos", "price": 15.0, "desc": "Anestésico disociativo inyectable. Para procedimientos quirúrgicos en pequeñas y grandes especies.", "available": true, "popular": false, "image": null}, {"id": "an2", "name": "Xilacina 20mg/ml 20ml", "category": "anestesicos", "price": 18.0, "desc": "Sedante, analgésico y relajante muscular. Uso en bovinos, equinos, caninos y felinos.", "available": true, "popular": false, "image": null}, {"id": "an3", "name": "Propofol 10mg/ml 20ml", "category": "anestesicos", "price": 22.0, "desc": "Anestésico de inducción y mantenimiento IV. Rápida recuperación, ideal para procedimientos cortos.", "available": true, "popular": false, "image": null}, {"id": "ae1", "name": "Buscapina 20mg inyectable", "category": "antiespasmadico", "price": 6.0, "desc": "Butilescopolamina. Tratamiento de espasmos gastrointestinales y urogenitales. Cólicos.", "available": true, "popular": false, "image": null}, {"id": "em1", "name": "Complejo B inyectable 100ml", "category": "estimulantes", "price": 7.0, "desc": "Estimulante metabólico. Vitaminas del complejo B para recuperación y mejora del rendimiento.", "available": true, "popular": false, "image": null}, {"id": "em2", "name": "Aminoácidos esenciales 100ml", "category": "estimulantes", "price": 9.5, "desc": "Suplemento de aminoácidos esenciales. Recuperación postoperatoria y enfermedades crónicas.", "available": true, "popular": false, "image": null}, {"id": "em3", "name": "ADE + Complejo B 100ml", "category": "estimulantes", "price": 8.0, "desc": "Vitaminas A, D, E + Complejo B inyectable. Reconstituyente y estimulante metabólico completo.", "available": true, "popular": false, "image": null}, {"id": "an1b", "name": "Boldenona 50mg/ml 10ml", "category": "anabolicos", "price": 15.0, "desc": "Anabólico veterinario. Favorece el desarrollo muscular y la recuperación en animales bajo supervisión.", "available": true, "popular": false, "image": null}, {"id": "an2b", "name": "Estanozolol 50mg/ml 10ml", "category": "anabolicos", "price": 12.0, "desc": "Anabólico veterinario. Mejora el rendimiento y la recuperación muscular bajo supervisión profesional.", "available": true, "popular": false, "image": null}, {"id": "oo1", "name": "Otex gotas óticas 15ml", "category": "otica", "price": 6.5, "desc": "Limpieza y tratamiento de oídos. Antibiótico + antifúngico + antiinflamatorio. Otitis externa.", "available": true, "popular": false, "image": null}, {"id": "oo2", "name": "Colirio antibiótico 10ml", "category": "otica", "price": 5.0, "desc": "Gotas oftálmicas antibióticas. Tratamiento de conjuntivitis bacteriana y otras infecciones oculares.", "available": true, "popular": false, "image": null}, {"id": "oo3", "name": "Limpiador auricular 120ml", "category": "otica", "price": 7.0, "desc": "Solución limpiadora de oídos. Elimina cera y detritos. Previene infecciones. Sin antibiótico.", "available": true, "popular": false, "image": null}, {"id": "al1", "name": "Alfa Mantenimiento 1 libra", "category": "alimentos", "price": 1.47, "desc": "Alimento completo para perros adultos. Carne deshidratada 28%, maíz, trigo. Proteínas 28%, Grasas 11%.", "available": true, "popular": true, "image": null}, {"id": "al2", "name": "Alfa Mantenimiento 20 kg", "category": "alimentos", "price": 60.0, "desc": "Saco 20kg. Alimento completo para perros adultos razas medianas y grandes. Alta calidad nutricional.", "available": true, "popular": false, "image": null}, {"id": "al3", "name": "Alfa Cachorros 1 libra", "category": "alimentos", "price": 1.66, "desc": "Alimento para cachorros de todas las razas. Carne deshidratada 34%. Proteínas 30%. Hasta 15 meses.", "available": false, "popular": false, "image": null}, {"id": "al4", "name": "Alfa Cachorros 20 kg", "category": "alimentos", "price": 67.0, "desc": "Saco 20kg. Alfa Puppies para cachorros. Alta proteína para el crecimiento óptimo.", "available": false, "popular": false, "image": null}, {"id": "al5", "name": "Alfa Puppy 4 kg", "category": "alimentos", "price": 14.0, "desc": "Alimento para cachorros 4kg. Con carne de res y cordero. Completo y equilibrado.", "available": true, "popular": false, "image": null}, {"id": "mi1", "name": "Army Jabón insecticida", "category": "micelanea", "price": 6.0, "desc": "Jabón insecticida con Permetrina 1%. Control de garrapatas, pulgas, piojos y ácaros. Protección 15 días.", "available": true, "popular": false, "image": null}, {"id": "mi2", "name": "Loción Tornado cachorros", "category": "micelanea", "price": 7.5, "desc": "Loción perfumada para cachorros. Aroma a baby. Biodegradable. Elimina olores y da frescura.", "available": true, "popular": false, "image": null}, {"id": "mi3", "name": "Shampoo antiparasitario", "category": "micelanea", "price": 10.0, "desc": "Shampoo Haustier contra pulgas y garrapatas. Limpieza profunda y protección parasitaria.", "available": false, "popular": false, "image": null}, {"id": "mi4", "name": "Collar Isabelino No.1", "category": "micelanea", "price": 6.5, "desc": "Collar isabelino postoperatorio. Protege heridas y cicatrices. Talla 1 para perros medianos.", "available": false, "popular": false, "image": null}, {"id": "mi5", "name": "Collar Isabelino No.2+", "category": "micelanea", "price": 5.5, "desc": "Collar isabelino postoperatorio. Talla 2+ para perros medianos-grandes.", "available": false, "popular": false, "image": null}, {"id": "mi6", "name": "Collar Isabelino No.4", "category": "micelanea", "price": 4.15, "desc": "Collar isabelino postoperatorio. Talla 4 para perros pequeños.", "available": false, "popular": false, "image": null}, {"id": "mi7", "name": "Collar Isabelino No.5", "category": "micelanea", "price": 3.37, "desc": "Collar isabelino postoperatorio. Talla 5 para perros muy pequeños y gatos.", "available": false, "popular": false, "image": null}, {"id": "mi8", "name": "Escuderm Spray", "category": "micelanea", "price": 8.5, "desc": "Solución dérmica para tratamiento de dermatitis. Antibacteriano y antifúngico tópico.", "available": true, "popular": false, "image": null}, {"id": "ac1j", "name": "Comedero acero inoxidable S", "category": "accesorios", "price": 4.0, "desc": "Comedero de acero inoxidable para perros y gatos pequeños. Higiénico y duradero.", "available": false, "popular": false, "image": null}, {"id": "ac2j", "name": "Comedero acero inoxidable L", "category": "accesorios", "price": 6.5, "desc": "Comedero de acero inoxidable para perros grandes. Alta resistencia y fácil limpieza.", "available": false, "popular": false, "image": null}, {"id": "ac3j", "name": "Lima de uñas eléctrica", "category": "accesorios", "price": 4.0, "desc": "Lima eléctrica para uñas de mascotas. Sin dolor, portátil. Funciona con 2 pilas AA.", "available": false, "popular": false, "image": null}, {"id": "ac4j", "name": "Pechera con correa talla S", "category": "accesorios", "price": 5.19, "desc": "Pechera ajustable con correa integrada. Talla S para perros pequeños. Cómoda y segura.", "available": false, "popular": false, "image": null}, {"id": "ac5j", "name": "Pechera con correa talla M", "category": "accesorios", "price": 5.71, "desc": "Pechera ajustable con correa integrada. Talla M para perros medianos.", "available": false, "popular": false, "image": null}, {"id": "ac6j", "name": "Pechera con correa talla L", "category": "accesorios", "price": 6.23, "desc": "Pechera ajustable con correa integrada. Talla L para perros grandes.", "available": false, "popular": false, "image": null}, {"id": "ac7j", "name": "Pechera con correa talla XL", "category": "accesorios", "price": 6.75, "desc": "Pechera ajustable con correa integrada. Talla XL para perros muy grandes.", "available": false, "popular": false, "image": null}, {"id": "ac8j", "name": "Collar + correa perros grandes", "category": "accesorios", "price": 12.0, "desc": "Set collar y correa resistente para perros grandes. Material duradero de alta calidad.", "available": false, "popular": false, "image": null}, {"id": "ac9j", "name": "Calzón sanitario chico", "category": "accesorios", "price": 2.5, "desc": "Calzón sanitario para perritas en celo. Talla chica. Reutilizable y cómodo.", "available": false, "popular": false, "image": null}, {"id": "ac10j", "name": "Calzón sanitario mediano", "category": "accesorios", "price": 2.85, "desc": "Calzón sanitario para perritas en celo. Talla mediana.", "available": false, "popular": false, "image": null}, {"id": "ac11j", "name": "Calzón sanitario grande", "category": "accesorios", "price": 3.5, "desc": "Calzón sanitario para perritas en celo. Talla grande.", "available": false, "popular": false, "image": null}, {"id": "ac12j", "name": "Toallas sanitarias perras", "category": "accesorios", "price": 0.05, "desc": "Toallas sanitarias individuales para perras en celo. Cómodas y absorbentes.", "available": false, "popular": false, "image": null}, {"id": "cp1", "name": "Raticida Storm bloque", "category": "control_plagas", "price": 3.0, "desc": "Rodenticida anticoagulante en bloque. Control efectivo de ratas y ratones en cualquier entorno.", "available": true, "popular": false, "image": null}, {"id": "cp2", "name": "Raticida granulado 100g", "category": "control_plagas", "price": 2.5, "desc": "Raticida en cebo granulado. Palatabilidad alta. Para uso en hogares, granjas y almacenes.", "available": true, "popular": false, "image": null}, {"id": "cp3", "name": "Trampa para ratones", "category": "control_plagas", "price": 1.5, "desc": "Trampa mecánica reutilizable para ratones. Sin veneno. Segura para el entorno familiar.", "available": true, "popular": false, "image": null}, {"id": "ma1", "name": "Acondicionador de agua 120ml", "category": "mundo_acuario", "price": 4.0, "desc": "Neutraliza cloro y cloraminas. Acondiciona el agua para peces tropicales y de agua fría.", "available": true, "popular": false, "image": null}, {"id": "ma2", "name": "Alimento para peces tropicales", "category": "mundo_acuario", "price": 3.5, "desc": "Hojuelas nutritivas para peces tropicales. Fórmula con proteínas, vitaminas y minerales.", "available": true, "popular": false, "image": null}, {"id": "ma3", "name": "Antibiótico para peces", "category": "mundo_acuario", "price": 5.0, "desc": "Tratamiento antibacteriano para peces. Control de infecciones bacterianas en acuarios.", "available": true, "popular": false, "image": null}, {"id": "ma4", "name": "Termómetro para acuario", "category": "mundo_acuario", "price": 2.5, "desc": "Termómetro de vidrio flotante. Medición precisa de temperatura del agua del acuario.", "available": true, "popular": false, "image": null}, {"id": "op1", "name": "Suero fisiológico 500ml", "category": "otros", "price": 4.0, "desc": "Solución de cloruro de sodio 0.9%. Hidratación parenteral, lavado de heridas y mucosas.", "available": true, "popular": false, "image": null}, {"id": "op2", "name": "Jeringa 10ml desechable", "category": "otros", "price": 0.3, "desc": "Jeringa plástica desechable estéril 10ml. Uso veterinario.", "available": true, "popular": false, "image": null}, {"id": "op3", "name": "Guantes de nitrilo (par)", "category": "otros", "price": 0.5, "desc": "Guantes de nitrilo para procedimientos veterinarios. Talla única. Resistentes y ajustables.", "available": true, "popular": false, "image": null}, {"id": "op4", "name": "Gasa estéril 10x10cm", "category": "otros", "price": 0.25, "desc": "Gasa estéril para curación de heridas. Paquete individual. Alta absorción.", "available": true, "popular": false, "image": null}, {"id": "op5", "name": "Betadine solución 120ml", "category": "otros", "price": 5.0, "desc": "Solución yodada antiséptica. Desinfección de heridas y piel antes de procedimientos.", "available": true, "popular": false, "image": null}]};
+let zones = [{"id": "z1", "name": "Ciudamar", "price": 4.96, "active": true}, {"id": "z2", "name": "Punta Gorda", "price": 4.0, "active": true}, {"id": "z3", "name": "Veguita de Galo", "price": 0.7, "active": true}, {"id": "z4", "name": "Polvorín", "price": 1.8, "active": true}, {"id": "z5", "name": "Centro Trocha/Enramada, Barracones/Reloj", "price": 1.4, "active": true}, {"id": "z6", "name": "Santa Bárbara", "price": 3.0, "active": true}, {"id": "z7", "name": "Micro 7", "price": 6.78, "active": true}, {"id": "z8", "name": "Los Pinos", "price": 3.0, "active": true}, {"id": "z9", "name": "Alta Vista", "price": 2.48, "active": true}, {"id": "z10", "name": "Versalles", "price": 1.67, "active": true}, {"id": "z11", "name": "Vista Hermosa", "price": 0.4, "active": true}, {"id": "z12", "name": "Altamira", "price": 1.28, "active": true}, {"id": "z13", "name": "Alameda y alrededores hasta Ferro Caribe", "price": 1.5, "active": true}, {"id": "z14", "name": "Mariana de la Torre", "price": 0.7, "active": true}, {"id": "z15", "name": "Nuevo Vista Alegre", "price": 4.0, "active": true}, {"id": "z16", "name": "Micro 9", "price": 6.72, "active": true}, {"id": "z17", "name": "Dagnesse, Hospital Militar, Cangrejitos", "price": 1.4, "active": true}, {"id": "z18", "name": "Arte y Oficio", "price": 2.5, "active": true}, {"id": "z19", "name": "18 Planta de Garzón", "price": 2.0, "active": true}];
+let cart       = {};
+let activeCat  = catalog.categories[0]?.id || "";
+let searchMode = false;
+let orderType  = "domicilio";
+let editingProd = null, editingCat = null, editingZone = null;
+
+/* ═══ INIT ═══ */
+async function init(){
+  try{
+    const r1 = await fetch(`${GH_RAW}${GH_CAT}?_=${Date.now()}`);
+    if(r1.ok) catalog = await r1.json();
+  }catch{}
+  try{
+    const r2 = await fetch(`${GH_RAW}${GH_ZONES}?_=${Date.now()}`);
+    if(r2.ok) zones = await r2.json();
+  }catch{}
+  try{
+    const r3 = await fetch(`${GH_RAW}${GH_SETTINGS}?_=${Date.now()}`);
+    if(r3.ok){ const s = await r3.json(); siteSettings = {...siteSettings,...s}; applySettings(); }
+  }catch{}
+  renderCats();
+  renderProds();
+  updateCartUI();
+  populateZoneSelect();
+}
+
+/* ═══ CATEGORÍAS ═══ */
+function renderCats(){
+  const row = document.getElementById('cats-row');
+  row.innerHTML = catalog.categories.map(cat=>{
+    const count = catalog.products.filter(p=>p.category===cat.id).length;
+    return `<button class="cat-btn${cat.id===activeCat&&!searchMode?' active':''}"
+      data-catid="${cat.id}">
+      ${cat.icon} ${cat.name}
+      <span class="cat-count">${count}</span>
+    </button>`;
+  }).join('');
+  row.querySelectorAll('.cat-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      activeCat = btn.dataset.catid;
+      searchMode = false;
+      document.getElementById('search-input').value='';
+      document.getElementById('search-clear').style.display='none';
+      renderCats();
+      renderProds();
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+}
+
+/* ═══ PRODUCTOS ═══ */
+function renderProds(){
+  const main = document.getElementById('main-content');
+  let prods;
+  if(searchMode){
+    const q = document.getElementById('search-input').value.trim().toLowerCase();
+    prods = catalog.products.filter(p=>
+      p.name.toLowerCase().includes(q)||
+      (p.desc||'').toLowerCase().includes(q)||
+      p.category.toLowerCase().includes(q)
+    );
+    const cat = catalog.categories.find(c=>c.id===activeCat);
+    main.innerHTML = `<div class="search-header">🔍 ${prods.length} resultado${prods.length!==1?'s':''} encontrado${prods.length!==1?'s':''}</div>`
+      + `<div class="prods-grid">${prods.map(prodCard).join('')}</div>`;
+  } else {
+    const cat = catalog.categories.find(c=>c.id===activeCat);
+    prods = catalog.products.filter(p=>p.category===activeCat);
+    main.innerHTML = cat ? `
+      <div class="sec-head">
+        <span class="sec-head-icon">${cat.icon}</span>
+        <div>
+          <h2>${cat.name}</h2>
+          <p>${cat.desc||''} · ${prods.length} productos</p>
+        </div>
+      </div>
+      <div class="prods-grid">${prods.length?prods.map(prodCard).join(''):'<div class="empty-state"><div class="icon">📦</div><p>No hay productos en esta categoría</p></div>'}</div>` : '';
+  }
+  main.querySelectorAll('[data-addid]').forEach(btn=>{
+    btn.addEventListener('click',()=>addToCart(btn.dataset.addid));
+  });
+  main.querySelectorAll('[data-incid]').forEach(btn=>{
+    btn.addEventListener('click',()=>incCart(btn.dataset.incid, parseInt(btn.dataset.delta)));
+  });
+}
+
+function getCatIcon(catId){
+  return catalog.categories.find(c=>c.id===catId)?.icon || '📦';
+}
+
+function prodCard(p){
+  const inCart = cart[p.id]||0;
+  const avail  = p.available !== false;
+  return `<div class="pcard${avail?'':' unavail'}">
+    <div class="pcard-left">${p.image?`<img src="${p.image}" alt="${p.name}" loading="lazy"/>`:getCatIcon(p.category)}</div>
+    <div class="pcard-body">
+      <div class="pcard-top">
+        <div class="pcard-name">${p.name}</div>
+      </div>
+      <div class="pcard-tags">
+        ${p.popular?'<span class="tag-popular">⭐ Popular</span>':''}
+        ${!avail?'<span class="tag-agotado">Agotado</span>':''}
+      </div>
+      ${p.desc?`<div class="pcard-desc">${p.desc}</div>`:''}
+      <div class="pcard-footer">
+        <div class="pcard-price">${p.price?.toFixed(2)} USD</div>
+        ${avail ? (inCart>0 ?
+          `<div style="display:flex;align-items:center;gap:6px">
+            <button class="ci-qbtn" data-incid="${p.id}" data-delta="-1">−</button>
+            <span style="font-weight:700;font-size:13px;min-width:18px;text-align:center">${inCart}</span>
+            <button class="ci-qbtn" data-incid="${p.id}" data-delta="1">+</button>
+          </div>` :
+          `<button class="pcard-add" data-addid="${p.id}" title="Agregar al carrito">+</button>`
+        ) : `<button class="pcard-add" disabled>✕</button>`}
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ═══ BÚSQUEDA ═══ */
+function handleSearch(){
+  const q = document.getElementById('search-input').value.trim();
+  const clearBtn = document.getElementById('search-clear');
+  clearBtn.style.display = q ? 'block' : 'none';
+  if(q.length >= 2){
+    searchMode = true;
+    renderCats();
+    renderProds();
+  } else if(q.length === 0){
+    clearSearch();
+  }
+}
+function clearSearch(){
+  document.getElementById('search-input').value = '';
+  document.getElementById('search-clear').style.display = 'none';
+  searchMode = false;
+  renderCats();
+  renderProds();
+}
+
+/* ═══ CARRITO ═══ */
+function addToCart(id){
+  const p = catalog.products.find(x=>x.id===id);
+  if(!p||p.available===false) return;
+  cart[id] = (cart[id]||0) + 1;
+  updateCartUI();
+  renderProds();
+  showToast(`${getCatIcon(p.category)} ${p.name} agregado`);
+}
+function incCart(id, delta){
+  cart[id] = Math.max(0, (cart[id]||0) + delta);
+  if(cart[id]===0) delete cart[id];
+  updateCartUI();
+  renderProds();
+}
+
+function updateCartUI(){
+  const entries = Object.entries(cart).filter(([,q])=>q>0);
+  const subtotal = entries.reduce((s,[id,q])=>{
+    const p = catalog.products.find(x=>x.id===id);
+    return s + (p?p.price*q:0);
+  },0);
+  const count = entries.reduce((s,[,q])=>s+q,0);
+  const badge = document.getElementById('cbadge');
+  badge.textContent = count;
+  badge.classList.toggle('hidden', count===0);
+  document.getElementById('cart-subtotal').textContent = subtotal.toFixed(2)+' USD';
+  document.getElementById('cart-total').textContent = subtotal.toFixed(2)+' USD';
+
+  const list = document.getElementById('cart-list');
+  const foot = document.getElementById('cart-foot');
+  if(count===0){
+    list.innerHTML='<div class="cart-empty"><div class="icon">🛒</div><p>Tu carrito está vacío</p></div>';
+    foot.style.display='none'; return;
+  }
+  foot.style.display='block';
+  list.innerHTML = entries.map(([id,q])=>{
+    const p = catalog.products.find(x=>x.id===id);
+    if(!p) return '';
+    return `<div class="ci">
+      <div class="ci-icon">${p.image?`<img src="${p.image}" style="width:40px;height:40px;border-radius:8px;object-fit:cover">`:(getCatIcon(p.category)||'📦')}</div>
+      <div class="ci-info">
+        <div class="ci-name">${p.name}</div>
+        <div class="ci-price">${p.price?.toFixed(2)} USD × ${q}</div>
+      </div>
+      <div class="ci-ctrl">
+        <button class="ci-qbtn" data-delid="${id}" data-delta="-1">−</button>
+        <span class="ci-qty">${q}</span>
+        <button class="ci-qbtn" data-delid="${id}" data-delta="1">+</button>
+      </div>
+      <div class="ci-subtotal">${(p.price*q).toFixed(2)} USD</div>
+    </div>`;
+  }).join('');
+  list.querySelectorAll('[data-delid]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      incCart(btn.dataset.delid, parseInt(btn.dataset.delta));
+      updateCartUI();
+    });
+  });
+}
+
+function openCart(){
+  document.getElementById('cart-drawer').classList.add('open');
+  document.getElementById('overlay').classList.add('show');
+}
+function closeCart(){
+  document.getElementById('cart-drawer').classList.remove('open');
+  document.getElementById('overlay').classList.remove('show');
+}
+
+/* ═══ PEDIDO ═══ */
+function populateZoneSelect(){
+  const sel = document.getElementById('o-zone');
+  const activeZones = zones.filter(z=>z.active!==false);
+  sel.innerHTML = '<option value="">— Selecciona tu zona —</option>'
+    + activeZones.map(z=>`<option value="${z.id}">${z.name} (+${z.price.toFixed(2)} USD)</option>`).join('');
+}
+function selectType(t){
+  orderType = t;
+  document.getElementById('btn-domicilio').classList.toggle('selected', t==='domicilio');
+  document.getElementById('btn-recogida').classList.toggle('selected', t==='recogida');
+  document.getElementById('domicilio-fields').style.display = t==='domicilio'?'block':'none';
+  document.getElementById('order-receipt').style.display = 'none';
+}
+function updateZoneFee(){
+  const zoneId = document.getElementById('o-zone').value;
+  const zone = zones.find(z=>z.id===zoneId);
+  const info = document.getElementById('zone-info');
+  if(zone){
+    info.style.display='block';
+    document.getElementById('zone-fee-display').textContent = zone.price.toFixed(2)+' USD';
+  } else {
+    info.style.display='none';
+  }
+  document.getElementById('order-receipt').style.display = 'none';
+}
+function openOrderForm(){
+  closeCart();
+  selectType('domicilio');
+  document.getElementById('order-receipt').style.display='none';
+  document.getElementById('order-modal').classList.add('open');
+  document.getElementById('overlay').classList.add('show');
+}
+function closeOrderForm(){
+  document.getElementById('order-modal').classList.remove('open');
+  document.getElementById('overlay').classList.remove('show');
+}
+
+function confirmOrder(){
+  const name    = document.getElementById('o-name').value.trim();
+  const phone   = document.getElementById('o-phone').value.trim();
+  const address = document.getElementById('o-address').value.trim();
+  const note    = document.getElementById('o-note').value.trim();
+  const zoneId  = document.getElementById('o-zone').value;
+
+  if(!name){ showToast('⚠️ Escribe tu nombre'); return; }
+  if(!phone){ showToast('⚠️ Escribe tu teléfono'); return; }
+  if(orderType==='domicilio'){
+    if(!zoneId){ showToast('⚠️ Selecciona tu zona'); return; }
+    if(!address){ showToast('⚠️ Escribe tu dirección'); return; }
+  }
+
+  const zone = zones.find(z=>z.id===zoneId);
+  const entries = Object.entries(cart).filter(([,q])=>q>0);
+  const subtotal = entries.reduce((s,[id,q])=>{
+    const p = catalog.products.find(x=>x.id===id); return s+(p?p.price*q:0);},0);
+  const delivery = orderType==='domicilio' && zone ? zone.price : 0;
+  const total = subtotal + delivery;
+
+  // Build receipt
+  const receiptItems = document.getElementById('receipt-items');
+  receiptItems.innerHTML = entries.map(([id,q])=>{
+    const p = catalog.products.find(x=>x.id===id);
+    if(!p) return '';
+    return `<div class="receipt-item"><span>${getCatIcon(p.category)} ${p.name} ×${q}</span><span>${(p.price*q).toFixed(2)} USD</span></div>`;
+  }).join('')
+  + `<div class="receipt-item"><span>Subtotal productos</span><span>${subtotal.toFixed(2)} USD</span></div>`;
+
+  const rd = document.getElementById('receipt-delivery');
+  if(orderType==='domicilio' && zone){
+    rd.style.display='flex';
+    document.getElementById('receipt-delivery-val').textContent = zone.price.toFixed(2)+' USD';
+  } else { rd.style.display='none'; }
+  document.getElementById('receipt-total').textContent = total.toFixed(2)+' USD';
+  document.getElementById('order-receipt').style.display='block';
+
+  // Prepare WA message
+  const orderNum = Math.floor(Math.random()*9000)+1000;
+  const now = new Date().toLocaleString('es-CU');
+  const items = entries.map(([id,q])=>{
+    const p = catalog.products.find(x=>x.id===id);
+    return p?`• ${p.name} ×${q} = ${(p.price*q).toFixed(2)} USD`:'';
+  }).filter(Boolean).join('\n');
+
+  let msg = `🐾 *NUEVO PEDIDO #${orderNum} — Vitality Pets Farm*\n`
+    + `━━━━━━━━━━━━━━━━━━━━━━\n`
+    + `👤 *Cliente:* ${name}\n`
+    + `📱 *Teléfono:* ${phone}\n`;
+  if(orderType==='domicilio'){
+    msg += `🛵 *Entrega:* Domicilio\n`
+      + `📍 *Zona:* ${zone?.name}\n`
+      + `🏠 *Dirección:* ${address}\n`;
+  } else {
+    msg += `🏪 *Entrega:* Recogida en tienda\n`;
+  }
+  if(note) msg += `💬 *Nota:* ${note}\n`;
+  msg += `━━━━━━━━━━━━━━━━━━━━━━\n`
+    + `🛒 *Productos:*\n${items}\n`
+    + `━━━━━━━━━━━━━━━━━━━━━━\n`;
+  if(orderType==='domicilio' && zone) msg += `🛵 *Domicilio:* ${zone.price.toFixed(2)} USD\n`;
+  msg += `💰 *TOTAL A PAGAR: ${total.toFixed(2)} USD*\n`
+    + `🕐 *Hora:* ${now}`;
+
+  const waURL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+  document.getElementById('wa-send-btn').onclick = ()=>{ window.open(waURL,'_blank'); };
+
+  // Update button text to show confirm
+  const confirmBtn = document.querySelector('#order-modal .mbtn.primary');
+  if(confirmBtn){
+    confirmBtn.textContent = '✅ Confirmar pedido →';
+    confirmBtn.onclick = ()=>{
+      closeOrderForm();
+      document.getElementById('confirm-modal').classList.add('open');
+      document.getElementById('overlay').classList.add('show');
+      cart = {};
+      updateCartUI();
+      renderProds();
+    };
+  }
+}
+
+function closeConfirm(){
+  document.getElementById('confirm-modal').classList.remove('open');
+  document.getElementById('overlay').classList.remove('show');
+  // Reset order form
+  document.querySelector('#order-modal .mbtn.primary').textContent = 'Ver resumen →';
+  document.querySelector('#order-modal .mbtn.primary').onclick = confirmOrder;
+}
+
+/* ═══ ADMIN ═══ */
+function openAdmin(){
+  document.getElementById('admin-login-view').style.display='block';
+  document.getElementById('admin-panel-view').style.display='none';
+  document.getElementById('admin-pass').value='';
+  document.getElementById('pass-err').style.display='none';
+  document.getElementById('admin-modal').classList.add('open');
+}
+function closeAdmin(){ document.getElementById('admin-modal').classList.remove('open'); }
+function doLogin(){
+  if(document.getElementById('admin-pass').value === ADMIN_PASS){
+    document.getElementById('admin-login-view').style.display='none';
+    document.getElementById('admin-panel-view').style.display='block';
+    renderAdminProds();
+    renderAdminCats();
+    renderAdminZones();
+    document.getElementById('prod-count').textContent = `${catalog.products.length} productos en catálogo`;
+    document.getElementById('cat-count').textContent = `${catalog.categories.length} categorías`;
+    const tok = localStorage.getItem('gh_tok_vitality');
+    if(tok){ document.getElementById('gh-token-input').value='••••••••••';
+      document.getElementById('token-status').textContent='✅ Token guardado en este dispositivo'; }
+  } else {
+    document.getElementById('pass-err').style.display='block';
+    document.getElementById('admin-pass').value='';
+  }
+}
+function switchAdminTab(t){
+  document.querySelectorAll('.admin-section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.admin-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+t).classList.add('active');
+  event.target.classList.add('active');
+  if(t==='personalizacion') loadPersonalizacionForm();
+}
+function getToken(){ return localStorage.getItem('gh_tok_vitality')||''; }
+function saveToken(){
+  const t = document.getElementById('gh-token-input').value.trim();
+  if(!t||t==='••••••••••'){ showToast('⚠️ Ingresa un token válido'); return; }
+  localStorage.setItem('gh_tok_vitality', t);
+  document.getElementById('token-status').textContent='✅ Token guardado';
+  showToast('🔑 Token guardado');
+}
+
+/* GITHUB SAVE */
+async function ghSave(filename, data){
+  const token = getToken();
+  if(!token){ showToast('⚠️ Ingresa el token GitHub primero'); return false; }
+  const heads = {'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'};
+  let sha;
+  try{ const r=await fetch(GH_API+filename,{headers:heads}); if(r.ok){const d=await r.json();sha=d.sha;} }catch{}
+  const body={message:`Actualizar ${filename}`,
+    content:btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2)))),
+    ...(sha?{sha}:{})};
+  const r=await fetch(GH_API+filename,{method:'PUT',headers:heads,body:JSON.stringify(body)});
+  if(!r.ok){ const e=await r.json().catch(()=>({})); showToast('❌ Error: '+(e.message||r.status)); return false; }
+  return true;
+}
+
+/* ADMIN PRODUCTOS */
+function renderAdminProds(){
+  const q = document.getElementById('admin-search')?.value.trim().toLowerCase()||'';
+  const prods = catalog.products.filter(p=>!q||p.name.toLowerCase().includes(q));
+  document.getElementById('prod-count').textContent = `${catalog.products.length} productos en catálogo`;
+  const list = document.getElementById('admin-prod-list');
+  if(!prods.length){ list.innerHTML='<div class="empty-state"><div class="icon">📦</div><p>No hay productos</p></div>'; return; }
+  list.innerHTML = prods.map(p=>`
+    <div class="ap-item">
+      <div class="ap-icon">${p.image?`<img src="${p.image}" style="width:36px;height:36px;border-radius:8px;object-fit:cover">`:getCatIcon(p.category)}</div>
+      <div class="ap-info">
+        <div class="ap-name">${p.name}</div>
+        <div class="ap-cat">${catalog.categories.find(c=>c.id===p.category)?.name||p.category}</div>
+      </div>
+      <div class="ap-price">${p.price?.toFixed(2)} USD</div>
+      <div class="ap-btns">
+        <button class="ap-btn" data-edit="${p.id}">✏️</button>
+        <button class="ap-btn ${p.available!==false?'toggle-on':'toggle-off'}" data-tog="${p.id}">
+          ${p.available!==false?'✅':'❌'}
+        </button>
+        <button class="ap-btn danger" data-del="${p.id}">🗑</button>
+      </div>
+    </div>`).join('');
+  list.querySelectorAll('[data-edit]').forEach(btn=>btn.addEventListener('click',()=>openProdForm(btn.dataset.edit)));
+  list.querySelectorAll('[data-tog]').forEach(btn=>btn.addEventListener('click',()=>toggleProd(btn.dataset.tog)));
+  list.querySelectorAll('[data-del]').forEach(btn=>btn.addEventListener('click',()=>deleteProd(btn.dataset.del)));
+}
+
+function openProdForm(id){
+  editingProd = id;
+  document.getElementById('pf-title').textContent = id ? 'Editar Producto' : 'Agregar Producto';
+  const catSel = document.getElementById('pf-cat');
+  catSel.innerHTML = catalog.categories.map(c=>`<option value="${c.id}">${c.icon} ${c.name}</option>`).join('');
+  if(id){
+    const p = catalog.products.find(x=>x.id===id);
+    if(p){
+      document.getElementById('pf-name').value=p.name;
+      document.getElementById('pf-price').value=p.price;
+      document.getElementById('pf-desc').value=p.desc||'';
+      document.getElementById('pf-emoji').value=p.emoji||'';
+      document.getElementById('pf-cat').value=p.category;
+      document.getElementById('pf-avail').value=String(p.available!==false);
+      document.getElementById('pf-popular').value=String(p.popular===true);
+      const prev = document.getElementById('pf-preview');
+      if(p.image){ prev.src=p.image; prev.style.display='block';
+        document.getElementById('pf-placeholder').style.display='none'; }
+      else{ prev.style.display='none'; document.getElementById('pf-placeholder').style.display='block'; }
+    }
+  } else {
+    document.getElementById('pf-name').value='';
+    document.getElementById('pf-price').value='';
+    document.getElementById('pf-desc').value='';
+    document.getElementById('pf-emoji').value='';
+    document.getElementById('pf-avail').value='true';
+    document.getElementById('pf-popular').value='false';
+    document.getElementById('pf-preview').style.display='none';
+    document.getElementById('pf-placeholder').style.display='block';
+    document.getElementById('pf-img').value='';
+  }
+  document.getElementById('prod-form-modal').classList.add('open');
+}
+function closeProdForm(){ document.getElementById('prod-form-modal').classList.remove('open'); }
+function previewImg(){
+  const file = document.getElementById('pf-img').files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e=>{
+    const img = document.getElementById('pf-preview');
+    img.src = e.target.result; img.style.display='block';
+    document.getElementById('pf-placeholder').style.display='none';
+  };
+  reader.readAsDataURL(file);
+}
+
+async function saveProd(){
+  const name  = document.getElementById('pf-name').value.trim();
+  const price = parseFloat(document.getElementById('pf-price').value);
+  const desc  = document.getElementById('pf-desc').value.trim();
+  const emoji = document.getElementById('pf-emoji').value.trim();
+  const cat   = document.getElementById('pf-cat').value;
+  const avail = document.getElementById('pf-avail').value === 'true';
+  const pop   = document.getElementById('pf-popular').value === 'true';
+  if(!name||isNaN(price)){ showToast('⚠️ Nombre y precio son obligatorios'); return; }
+  let image = editingProd ? (catalog.products.find(x=>x.id===editingProd)||{}).image : null;
+  const file = document.getElementById('pf-img').files[0];
+  if(file) image = await new Promise(res=>{ const r=new FileReader(); r.onload=e=>res(e.target.result); r.readAsDataURL(file); });
+  const prod = {name,price,desc,emoji,category:cat,available:avail,popular:pop,image:image||null};
+  if(editingProd){
+    const idx = catalog.products.findIndex(x=>x.id===editingProd);
+    if(idx>=0) catalog.products[idx]={...catalog.products[idx],...prod};
+  } else {
+    catalog.products.push({id:'p'+Date.now(),...prod});
+  }
+  showToast('⏳ Guardando...');
+  const ok = await ghSave(GH_CAT, catalog);
+  closeProdForm();
+  renderAdminProds();
+  renderCats();
+  renderProds();
+  if(ok) showToast('✅ Producto guardado');
+}
+
+async function toggleProd(id){
+  const p = catalog.products.find(x=>x.id===id);
+  if(!p) return;
+  p.available = p.available===false ? true : false;
+  showToast('⏳ Guardando...');
+  const ok = await ghSave(GH_CAT, catalog);
+  renderAdminProds(); renderProds();
+  if(ok) showToast('✅ Guardado');
+}
+
+async function deleteProd(id){
+  if(!confirm('¿Eliminar este producto?')) return;
+  catalog.products = catalog.products.filter(x=>x.id!==id);
+  showToast('⏳ Guardando...');
+  const ok = await ghSave(GH_CAT, catalog);
+  renderAdminProds(); renderCats(); renderProds();
+  if(ok) showToast('✅ Producto eliminado');
+}
+
+/* ADMIN CATEGORÍAS */
+function renderAdminCats(){
+  document.getElementById('cat-count').textContent = `${catalog.categories.length} categorías`;
+  const list = document.getElementById('admin-cat-list');
+  list.innerHTML = catalog.categories.map(c=>`
+    <div class="ap-item">
+      <div class="ap-icon" style="font-size:26px">${c.icon}</div>
+      <div class="ap-info">
+        <div class="ap-name">${c.name}</div>
+        <div class="ap-cat">${catalog.products.filter(p=>p.category===c.id).length} productos</div>
+      </div>
+      <div class="ap-btns">
+        <button class="ap-btn" data-cedit="${c.id}">✏️</button>
+        <button class="ap-btn danger" data-cdel="${c.id}">🗑</button>
+      </div>
+    </div>`).join('');
+  list.querySelectorAll('[data-cedit]').forEach(btn=>btn.addEventListener('click',()=>openCatForm(btn.dataset.cedit)));
+  list.querySelectorAll('[data-cdel]').forEach(btn=>btn.addEventListener('click',()=>deleteCat(btn.dataset.cdel)));
+}
+function openCatForm(id){
+  editingCat = id;
+  document.getElementById('cf-title').textContent = id ? 'Editar Categoría' : 'Agregar Categoría';
+  if(id){
+    const c = catalog.categories.find(x=>x.id===id);
+    if(c){ document.getElementById('cf-name').value=c.name; document.getElementById('cf-icon').value=c.icon; document.getElementById('cf-desc').value=c.desc||''; }
+  } else {
+    document.getElementById('cf-name').value=''; document.getElementById('cf-icon').value=''; document.getElementById('cf-desc').value='';
+  }
+  document.getElementById('cat-form-modal').classList.add('open');
+}
+function closeCatForm(){ document.getElementById('cat-form-modal').classList.remove('open'); }
+async function saveCat(){
+  const name = document.getElementById('cf-name').value.trim();
+  const icon = document.getElementById('cf-icon').value.trim()||'📦';
+  const desc = document.getElementById('cf-desc').value.trim();
+  if(!name){ showToast('⚠️ Escribe el nombre'); return; }
+  if(editingCat){
+    const c = catalog.categories.find(x=>x.id===editingCat);
+    if(c){ c.name=name; c.icon=icon; c.desc=desc; }
+  } else {
+    const id = name.toLowerCase().replace(/[^a-z0-9]/g,'_')+Date.now().toString().slice(-4);
+    catalog.categories.push({id,name,icon,desc,color:'#388E3C'});
+  }
+  showToast('⏳ Guardando...');
+  const ok = await ghSave(GH_CAT, catalog);
+  closeCatForm(); renderAdminCats(); renderCats(); renderProds();
+  if(ok) showToast('✅ Categoría guardada');
+}
+async function deleteCat(id){
+  if(!confirm('¿Eliminar categoría? Los productos de esta categoría quedarán sin categoría.')) return;
+  catalog.categories = catalog.categories.filter(x=>x.id!==id);
+  showToast('⏳ Guardando...');
+  const ok = await ghSave(GH_CAT, catalog);
+  renderAdminCats(); renderCats(); renderProds();
+  if(ok) showToast('✅ Categoría eliminada');
+}
+
+/* ADMIN ZONAS */
+function renderAdminZones(){
+  const list = document.getElementById('admin-zone-list');
+  list.innerHTML = zones.map(z=>`
+    <div class="zone-item">
+      <div class="zone-name">${z.name}</div>
+      <div class="zone-price">${z.price.toFixed(2)} USD</div>
+      <div class="zone-status ${z.active!==false?'on':'off'}">${z.active!==false?'Activa':'Inactiva'}</div>
+      <button class="zone-edit-btn" data-zedit="${z.id}">✏️</button>
+      <button class="zone-edit-btn" data-ztog="${z.id}">${z.active!==false?'❌':'✅'}</button>
+    </div>`).join('');
+  list.querySelectorAll('[data-zedit]').forEach(btn=>btn.addEventListener('click',()=>openZoneForm(btn.dataset.zedit)));
+  list.querySelectorAll('[data-ztog]').forEach(btn=>btn.addEventListener('click',()=>toggleZone(btn.dataset.ztog)));
+}
+function openZoneForm(id){
+  editingZone = id;
+  document.getElementById('zf-title').textContent = id ? 'Editar Zona' : 'Agregar Zona';
+  if(id){
+    const z = zones.find(x=>x.id===id);
+    if(z){ document.getElementById('zf-name').value=z.name; document.getElementById('zf-price').value=z.price; document.getElementById('zf-active').value=String(z.active!==false); }
+  } else {
+    document.getElementById('zf-name').value=''; document.getElementById('zf-price').value=''; document.getElementById('zf-active').value='true';
+  }
+  document.getElementById('zone-form-modal').classList.add('open');
+}
+function closeZoneForm(){ document.getElementById('zone-form-modal').classList.remove('open'); }
+async function saveZone(){
+  const name   = document.getElementById('zf-name').value.trim();
+  const price  = parseFloat(document.getElementById('zf-price').value);
+  const active = document.getElementById('zf-active').value === 'true';
+  if(!name||isNaN(price)){ showToast('⚠️ Nombre y precio son obligatorios'); return; }
+  if(editingZone){
+    const z = zones.find(x=>x.id===editingZone);
+    if(z){ z.name=name; z.price=price; z.active=active; }
+  } else {
+    zones.push({id:'z'+Date.now(),name,price,active});
+  }
+  showToast('⏳ Guardando...');
+  const ok = await ghSave(GH_ZONES, zones);
+  closeZoneForm(); renderAdminZones(); populateZoneSelect();
+  if(ok) showToast('✅ Zona guardada');
+}
+async function toggleZone(id){
+  const z = zones.find(x=>x.id===id);
+  if(!z) return;
+  z.active = z.active===false ? true : false;
+  showToast('⏳ Guardando...');
+  const ok = await ghSave(GH_ZONES, zones);
+  renderAdminZones(); populateZoneSelect();
+  if(ok) showToast('✅ Guardado');
+}
+
+function applySettings(){
+  const s = siteSettings;
+  // Name & desc
+  const nameEl = document.querySelector('.business-name');
+  const descEl = document.querySelector('.business-sub');
+  const locEl  = document.querySelector('.rating-text');
+  if(nameEl) nameEl.textContent = s.name;
+  if(descEl) descEl.textContent = s.desc;
+  if(locEl)  locEl.textContent  = `5.0 · ${s.location}`;
+  // Logo
+  const logoEl = document.querySelector('.logo-circle');
+  if(logoEl){
+    if(s.logoImage) logoEl.innerHTML=`<img src="${s.logoImage}" style="width:100%;height:100%;border-radius:50%;object-fit:cover"/>`;
+    else logoEl.textContent = s.logoEmoji||'🐾';
+  }
+  // Cover
+  const coverEl = document.querySelector('.header-cover > div');
+  if(coverEl && s.coverImage){
+    coverEl.innerHTML=`<img src="${s.coverImage}" style="width:100%;height:100%;object-fit:cover;display:block"/>`;
+  }
+  // Badges
+  const badges = document.querySelectorAll('.dbadge');
+  const badgeTexts = [s.badge1, s.badge2, s.badge3].filter(Boolean);
+  badges.forEach((b,i)=>{ if(badgeTexts[i]) b.innerHTML=`<span style="width:7px;height:7px;border-radius:50%;background:#69F0AE;flex-shrink:0;display:inline-block"></span>${badgeTexts[i]}`; });
+  // WA button
+  const waBtn = document.querySelector('.wa-fab');
+  if(waBtn && s.phone) waBtn.href=`https://wa.me/${s.phone}`;
+  // WA number in order
+  window._waNumber = s.phone || WA_NUMBER;
+  // Page title
+  document.title = s.name + ' 🐾';
+}
+
+function loadPersonalizacionForm(){
+  const s = siteSettings;
+  document.getElementById('biz-name').value     = s.name||'';
+  document.getElementById('biz-desc').value     = s.desc||'';
+  document.getElementById('biz-location').value = s.location||'';
+  document.getElementById('biz-phone').value    = s.phone||'';
+  document.getElementById('logo-emoji').value   = s.logoEmoji||'🐾';
+  document.getElementById('biz-badge1').value   = s.badge1||'';
+  document.getElementById('biz-badge2').value   = s.badge2||'';
+  document.getElementById('biz-badge3').value   = s.badge3||'';
+  if(s.coverImage){
+    document.getElementById('cover-img-preview').src=s.coverImage;
+    document.getElementById('cover-img-preview').style.display='block';
+    document.getElementById('cover-placeholder').style.display='none';
+  }
+  if(s.logoImage){
+    document.getElementById('logo-img-preview').src=s.logoImage;
+    document.getElementById('logo-img-preview').style.display='block';
+    document.getElementById('logo-placeholder').style.display='none';
+  }
+}
+
+function previewCover(){
+  const file = document.getElementById('cover-img-input').files[0];
+  if(!file) return;
+  if(file.size > 2*1024*1024){ showToast('⚠️ La imagen debe ser menor de 2MB'); return; }
+  const reader = new FileReader();
+  reader.onload = e=>{
+    const img = document.getElementById('cover-img-preview');
+    img.src=e.target.result; img.style.display='block';
+    document.getElementById('cover-placeholder').style.display='none';
+    siteSettings.coverImage = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function previewLogo(){
+  const file = document.getElementById('logo-img-input').files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e=>{
+    const img = document.getElementById('logo-img-preview');
+    img.src=e.target.result; img.style.display='block';
+    document.getElementById('logo-placeholder').style.display='none';
+    siteSettings.logoImage = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+async function savePersonalizacion(){
+  siteSettings.name      = document.getElementById('biz-name').value.trim()||siteSettings.name;
+  siteSettings.desc      = document.getElementById('biz-desc').value.trim()||siteSettings.desc;
+  siteSettings.location  = document.getElementById('biz-location').value.trim()||siteSettings.location;
+  siteSettings.phone     = document.getElementById('biz-phone').value.trim()||siteSettings.phone;
+  siteSettings.logoEmoji = document.getElementById('logo-emoji').value.trim()||'🐾';
+  siteSettings.badge1    = document.getElementById('biz-badge1').value.trim();
+  siteSettings.badge2    = document.getElementById('biz-badge2').value.trim();
+  siteSettings.badge3    = document.getElementById('biz-badge3').value.trim();
+  applySettings();
+  showToast('⏳ Guardando...');
+  const ok = await ghSave(GH_SETTINGS, siteSettings);
+  if(ok) showToast('✅ Personalización guardada');
+}
+
+async function saveBanner(){
+  const text = document.getElementById('banner-text').value.trim();
+  if(!text){ showToast('⚠️ Escribe el texto del banner'); return; }
+  document.querySelector('.promo-track').innerHTML = `<span>🏷️ ${text}</span><span>🏷️ ${text}</span><span>🏷️ ${text}</span>`;
+  showToast('✅ Banner actualizado (solo visual, sube el HTML para guardar)');
+}
+
+/* ═══ TOAST ═══ */
+let toastTimer;
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),2600);
+}
+
+/* ═══ ESC KEY ═══ */
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    closeCart();
+    closeOrderForm();
+    closeConfirm();
+    closeAdmin();
+    closeProdForm();
+    closeCatForm();
+    closeZoneForm();
+  }
+});
+
+/* ═══ START ═══ */
+init();
+</script>
+</body>
+</html>

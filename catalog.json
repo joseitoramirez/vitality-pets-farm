@@ -1,0 +1,969 @@
+{
+  "categories": [
+    {
+      "id": "desparasitantes",
+      "name": "Desparasitantes",
+      "icon": "💊",
+      "desc": "Desparasitantes para animales de granja y compañía",
+      "color": "#388E3C"
+    },
+    {
+      "id": "vitaminas",
+      "name": "Vitaminas",
+      "icon": "🧪",
+      "desc": "Vitaminas para animales de granja y compañía",
+      "color": "#0288D1"
+    },
+    {
+      "id": "antibioticos",
+      "name": "Antibióticos",
+      "icon": "💉",
+      "desc": "Antibióticos para animales de granja y compañía",
+      "color": "#7B1FA2"
+    },
+    {
+      "id": "vacunas",
+      "name": "Vacunas",
+      "icon": "🔬",
+      "desc": "Vacunas veterinarias",
+      "color": "#E64A19"
+    },
+    {
+      "id": "antinflamatorios",
+      "name": "Antiinflamatorios",
+      "icon": "🩺",
+      "desc": "Antiinflamatorios para animales de granja y compañía",
+      "color": "#00838F"
+    },
+    {
+      "id": "antiparasitarios",
+      "name": "Antiparasitarios externos",
+      "icon": "🛡️",
+      "desc": "Control de ectoparásitos",
+      "color": "#558B2F"
+    },
+    {
+      "id": "antihistaminico",
+      "name": "Antihistamínico",
+      "icon": "💆",
+      "desc": "Antihistamínicos veterinarios",
+      "color": "#AD1457"
+    },
+    {
+      "id": "anticonvulsivos",
+      "name": "Anticonvulsivos",
+      "icon": "⚡",
+      "desc": "Anticonvulsivos veterinarios",
+      "color": "#4527A0"
+    },
+    {
+      "id": "anestesicos",
+      "name": "Anestésicos",
+      "icon": "😴",
+      "desc": "Anestésicos veterinarios",
+      "color": "#37474F"
+    },
+    {
+      "id": "antiespasmadico",
+      "name": "Antiespasmódico",
+      "icon": "🫀",
+      "desc": "Antiespasmódicos veterinarios",
+      "color": "#BF360C"
+    },
+    {
+      "id": "estimulantes",
+      "name": "Estimulantes Metabólicos",
+      "icon": "⚡",
+      "desc": "Estimulantes del metabolismo",
+      "color": "#F57F17"
+    },
+    {
+      "id": "anabolicos",
+      "name": "Anabólicos",
+      "icon": "💪",
+      "desc": "Anabólicos veterinarios",
+      "color": "#1B5E20"
+    },
+    {
+      "id": "otica",
+      "name": "Ótica/Oftalmológica",
+      "icon": "👁️",
+      "desc": "Cuidado de oídos y ojos",
+      "color": "#006064"
+    },
+    {
+      "id": "alimentos",
+      "name": "Alimentos",
+      "icon": "🥣",
+      "desc": "Alimentos para mascotas",
+      "color": "#E65100"
+    },
+    {
+      "id": "micelanea",
+      "name": "Miscelánea",
+      "icon": "🧴",
+      "desc": "Productos de aseo, higiene y cuidado",
+      "color": "#4A148C"
+    },
+    {
+      "id": "accesorios",
+      "name": "Accesorios y Juguetes",
+      "icon": "🎾",
+      "desc": "Accesorios, correas, pecheras y juguetes",
+      "color": "#880E4F"
+    },
+    {
+      "id": "control_plagas",
+      "name": "Control de Plagas",
+      "icon": "🐀",
+      "desc": "Rodenticidas y control de plagas",
+      "color": "#4E342E"
+    },
+    {
+      "id": "mundo_acuario",
+      "name": "Mundo Acuario",
+      "icon": "🐟",
+      "desc": "Todo para el mundo de los peces",
+      "color": "#01579B"
+    },
+    {
+      "id": "otros",
+      "name": "Otros Productos",
+      "icon": "📦",
+      "desc": "Productos varios veterinarios",
+      "color": "#546E7A"
+    }
+  ],
+  "products": [
+    {
+      "id": "d1",
+      "name": "Ivermex Premix sobre 20G",
+      "category": "desparasitantes",
+      "price": 3.2,
+      "desc": "Ivermectina para prevención y tratamiento de parasitosis internas y externas. Dosis oral en alimento. Amplio espectro.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "d2",
+      "name": "Pet-Max Adulto 6 tabletas",
+      "category": "desparasitantes",
+      "price": 1.45,
+      "desc": "Endoparasiticida de amplio espectro para caninos y felinos. Ivermectina + Albendazol + Prazicuantel. 1 tableta/10kg.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "d3",
+      "name": "BioVermiCan 1 tableta",
+      "category": "desparasitantes",
+      "price": 0.72,
+      "desc": "Combinación sinérgica de antiparasitarios. 1 tableta para 15-20 kg. Albendazol 300mg + Ivermectina 3mg.",
+      "available": true,
+      "popular": true,
+      "image": null
+    },
+    {
+      "id": "d4",
+      "name": "Levamisol 12% 250ml",
+      "category": "desparasitantes",
+      "price": 40.0,
+      "desc": "Desparasitante de amplio espectro inyectable. Elimina parásitos pulmonares y gastrointestinales en bovinos, caprinos y ovinos.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "d5",
+      "name": "Iver-Closan 250ml",
+      "category": "desparasitantes",
+      "price": 72.0,
+      "desc": "Antiparasitario combinado Ivermectina + Closantel. Control de fasciola hepática y parásitos gastrointestinales.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "d6",
+      "name": "BioVermiCan 30 tabletas",
+      "category": "desparasitantes",
+      "price": 18.0,
+      "desc": "Frasco de 30 tabletas. Combinación de Albendazol e Ivermectina. Para perros y gatos.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "v1",
+      "name": "Vitha Tabs SB",
+      "category": "vitaminas",
+      "price": 0.82,
+      "desc": "Complemento multivitamínico y mineral para perros. Con Vitamina E, A, D, complejo B, calcio, zinc, hierro y más.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "v2",
+      "name": "Vetri Cap 60 tabletas",
+      "category": "vitaminas",
+      "price": 33.25,
+      "desc": "Suplemento de calcio y fósforo con Vitamina D para perros y gatos. Previene desmineralización ósea.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "v3",
+      "name": "Complenay B12 100ml",
+      "category": "vitaminas",
+      "price": 20.25,
+      "desc": "Estimulante, multivitamínico y hematopoyético. Complejo B en dosis altas + Vitamina B12. Inyectable.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "v4",
+      "name": "B12 5500 100ml",
+      "category": "vitaminas",
+      "price": 14.0,
+      "desc": "Vitamina B12 inyectable. Esencial para el funcionamiento celular. Antianémico y hematopoyético.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "v5",
+      "name": "Complejo ADE inyectable",
+      "category": "vitaminas",
+      "price": 8.5,
+      "desc": "Vitaminas A, D y E inyectables. Esenciales para el crecimiento, visión, sistema inmune y reproducción.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ab1",
+      "name": "Otrozol 500 inyectable 100ml",
+      "category": "antibioticos",
+      "price": 9.0,
+      "desc": "Metronidazol 500mg. Tratamiento de infecciones por bacterias anaerobias. Tracto respiratorio, óseo, articular.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ab2",
+      "name": "Enrotrim 10% 1L",
+      "category": "antibioticos",
+      "price": 78.0,
+      "desc": "Enrofloxacina + Trimetoprim oral. Tratamiento de infecciones del tracto digestivo y respiratorio en aves.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ab3",
+      "name": "Neumo Espectol 20g",
+      "category": "antibioticos",
+      "price": 3.0,
+      "desc": "Combinación sinérgica antibacteriana con analgésico, antipirético y expectorante. Enfermedades respiratorias.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ab4",
+      "name": "Ceftibio RTU 100ml",
+      "category": "antibioticos",
+      "price": 25.0,
+      "desc": "Ceftiofur + Diclofenaco inyectable. Potente antineumónico de amplio espectro. Enfermedades respiratorias agudas.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ab5",
+      "name": "Amoxicilina 15% 100ml",
+      "category": "antibioticos",
+      "price": 12.0,
+      "desc": "Amoxicilina inyectable de amplio espectro. Infecciones respiratorias, digestivas y urogenitales.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ab6",
+      "name": "Penicilina G sódica",
+      "category": "antibioticos",
+      "price": 4.5,
+      "desc": "Antibiótico bactericida. Tratamiento de infecciones por microorganismos sensibles a la penicilina.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "vc1",
+      "name": "Vacuna Antirrábica",
+      "category": "vacunas",
+      "price": 5.0,
+      "desc": "Vacuna contra la rabia para caninos y felinos. Protección anual obligatoria.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "vc2",
+      "name": "Vacuna Parvovirus canino",
+      "category": "vacunas",
+      "price": 8.0,
+      "desc": "Protección contra el parvovirus canino. Enfermedad altamente contagiosa y mortal.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "vc3",
+      "name": "Vacuna polivalente canina",
+      "category": "vacunas",
+      "price": 12.0,
+      "desc": "Protección múltiple: Moquillo, Hepatitis, Parvovirus, Parainfluenza y Leptospirosis.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "vc4",
+      "name": "Vacuna triple felina",
+      "category": "vacunas",
+      "price": 10.0,
+      "desc": "Protección para gatos: Panleucopenia, Rinotraqueitis y Calicivirus felino.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ai1",
+      "name": "Dolatac 30 tabletas",
+      "category": "antinflamatorios",
+      "price": 9.0,
+      "desc": "Antiinflamatorio no esteroidal. Tratamiento de estados inflamatorios y dolorosos. 1 tableta/5kg.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ai2",
+      "name": "BIO DEXAVET 10ml",
+      "category": "antinflamatorios",
+      "price": 3.4,
+      "desc": "Dexametasona inyectable. Glucocorticoide de acción prolongada para procesos inflamatorios. 1ml/50kg.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ai3",
+      "name": "Ketocorodol 100ml",
+      "category": "antinflamatorios",
+      "price": 16.0,
+      "desc": "Ketorolaco analgésico, antipirético y antiinflamatorio inyectable. Para mastitis, neumonías, cólicos.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ai4",
+      "name": "Meloxican razas pequeñas 20 tabs",
+      "category": "antinflamatorios",
+      "price": 5.0,
+      "desc": "Meloxicam 0.2mg para caninos pequeños. Otitis, traumatismos, artritis. Oral, 1 tableta/1-1.5kg.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ai5",
+      "name": "Carprofeno 50mg 14 tabletas",
+      "category": "antinflamatorios",
+      "price": 7.5,
+      "desc": "AINE para perros. Alivio del dolor postoperatorio y crónico. Artritis, displasia de cadera.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ap1",
+      "name": "Bovitraz 12.5% 100ml",
+      "category": "antiparasitarios",
+      "price": 18.5,
+      "desc": "Amitraz garrapaticida, sarnicida y piojicida. Para bovinos, porcinos, ovinos y caninos. Aspersión o baño.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ap2",
+      "name": "Pipetas Bovitraz 12.5%",
+      "category": "antiparasitarios",
+      "price": 5.0,
+      "desc": "Pipetas de Amitraz 12.5%. Control de garrapatas, ácaros y piojos. Aplicación tópica.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ap3",
+      "name": "Ectoline Pour On 1L",
+      "category": "antiparasitarios",
+      "price": 83.0,
+      "desc": "Fipronil 10mg/ml. Insecticida y acaricida de larga acción hasta 35 días. Garrapatas, moscas, piojos.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ap4",
+      "name": "Frontline Plus pipeta",
+      "category": "antiparasitarios",
+      "price": 8.0,
+      "desc": "Fipronil + S-Metopreno. Control de pulgas, garrapatas y piojos. Efecto hasta 30 días.",
+      "available": true,
+      "popular": true,
+      "image": null
+    },
+    {
+      "id": "ah1",
+      "name": "Difenhidramina 50mg 10 tabs",
+      "category": "antihistaminico",
+      "price": 3.0,
+      "desc": "Antihistamínico para reacciones alérgicas. Urticaria, dermatitis alérgica, prurito.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ah2",
+      "name": "Clorfeniramina inyectable",
+      "category": "antihistaminico",
+      "price": 4.5,
+      "desc": "Antihistamínico inyectable de acción rápida. Reacciones anafilácticas, alergias agudas.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ah3",
+      "name": "Loratadina veterinaria",
+      "category": "antihistaminico",
+      "price": 5.0,
+      "desc": "Antihistamínico de segunda generación. Sin sedación. Dermatitis, rinitis alérgica.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ac1",
+      "name": "Fenobarbital 30mg 30 tabs",
+      "category": "anticonvulsivos",
+      "price": 8.0,
+      "desc": "Anticonvulsivo para epilepsia canina. Control de convulsiones y crisis epilépticas.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "an1",
+      "name": "Ketamina 50mg/ml 10ml",
+      "category": "anestesicos",
+      "price": 15.0,
+      "desc": "Anestésico disociativo inyectable. Para procedimientos quirúrgicos en pequeñas y grandes especies.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "an2",
+      "name": "Xilacina 20mg/ml 20ml",
+      "category": "anestesicos",
+      "price": 18.0,
+      "desc": "Sedante, analgésico y relajante muscular. Uso en bovinos, equinos, caninos y felinos.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "an3",
+      "name": "Propofol 10mg/ml 20ml",
+      "category": "anestesicos",
+      "price": 22.0,
+      "desc": "Anestésico de inducción y mantenimiento IV. Rápida recuperación, ideal para procedimientos cortos.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ae1",
+      "name": "Buscapina 20mg inyectable",
+      "category": "antiespasmadico",
+      "price": 6.0,
+      "desc": "Butilescopolamina. Tratamiento de espasmos gastrointestinales y urogenitales. Cólicos.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "em1",
+      "name": "Complejo B inyectable 100ml",
+      "category": "estimulantes",
+      "price": 7.0,
+      "desc": "Estimulante metabólico. Vitaminas del complejo B para recuperación y mejora del rendimiento.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "em2",
+      "name": "Aminoácidos esenciales 100ml",
+      "category": "estimulantes",
+      "price": 9.5,
+      "desc": "Suplemento de aminoácidos esenciales. Recuperación postoperatoria y enfermedades crónicas.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "em3",
+      "name": "ADE + Complejo B 100ml",
+      "category": "estimulantes",
+      "price": 8.0,
+      "desc": "Vitaminas A, D, E + Complejo B inyectable. Reconstituyente y estimulante metabólico completo.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "an1b",
+      "name": "Boldenona 50mg/ml 10ml",
+      "category": "anabolicos",
+      "price": 15.0,
+      "desc": "Anabólico veterinario. Favorece el desarrollo muscular y la recuperación en animales bajo supervisión.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "an2b",
+      "name": "Estanozolol 50mg/ml 10ml",
+      "category": "anabolicos",
+      "price": 12.0,
+      "desc": "Anabólico veterinario. Mejora el rendimiento y la recuperación muscular bajo supervisión profesional.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "oo1",
+      "name": "Otex gotas óticas 15ml",
+      "category": "otica",
+      "price": 6.5,
+      "desc": "Limpieza y tratamiento de oídos. Antibiótico + antifúngico + antiinflamatorio. Otitis externa.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "oo2",
+      "name": "Colirio antibiótico 10ml",
+      "category": "otica",
+      "price": 5.0,
+      "desc": "Gotas oftálmicas antibióticas. Tratamiento de conjuntivitis bacteriana y otras infecciones oculares.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "oo3",
+      "name": "Limpiador auricular 120ml",
+      "category": "otica",
+      "price": 7.0,
+      "desc": "Solución limpiadora de oídos. Elimina cera y detritos. Previene infecciones. Sin antibiótico.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "al1",
+      "name": "Alfa Mantenimiento 1 libra",
+      "category": "alimentos",
+      "price": 1.47,
+      "desc": "Alimento completo para perros adultos. Carne deshidratada 28%, maíz, trigo. Proteínas 28%, Grasas 11%.",
+      "available": true,
+      "popular": true,
+      "image": null
+    },
+    {
+      "id": "al2",
+      "name": "Alfa Mantenimiento 20 kg",
+      "category": "alimentos",
+      "price": 60.0,
+      "desc": "Saco 20kg. Alimento completo para perros adultos razas medianas y grandes. Alta calidad nutricional.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "al3",
+      "name": "Alfa Cachorros 1 libra",
+      "category": "alimentos",
+      "price": 1.66,
+      "desc": "Alimento para cachorros de todas las razas. Carne deshidratada 34%. Proteínas 30%. Hasta 15 meses.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "al4",
+      "name": "Alfa Cachorros 20 kg",
+      "category": "alimentos",
+      "price": 67.0,
+      "desc": "Saco 20kg. Alfa Puppies para cachorros. Alta proteína para el crecimiento óptimo.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "al5",
+      "name": "Alfa Puppy 4 kg",
+      "category": "alimentos",
+      "price": 14.0,
+      "desc": "Alimento para cachorros 4kg. Con carne de res y cordero. Completo y equilibrado.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "mi1",
+      "name": "Army Jabón insecticida",
+      "category": "micelanea",
+      "price": 6.0,
+      "desc": "Jabón insecticida con Permetrina 1%. Control de garrapatas, pulgas, piojos y ácaros. Protección 15 días.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "mi2",
+      "name": "Loción Tornado cachorros",
+      "category": "micelanea",
+      "price": 7.5,
+      "desc": "Loción perfumada para cachorros. Aroma a baby. Biodegradable. Elimina olores y da frescura.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "mi3",
+      "name": "Shampoo antiparasitario",
+      "category": "micelanea",
+      "price": 10.0,
+      "desc": "Shampoo Haustier contra pulgas y garrapatas. Limpieza profunda y protección parasitaria.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "mi4",
+      "name": "Collar Isabelino No.1",
+      "category": "micelanea",
+      "price": 6.5,
+      "desc": "Collar isabelino postoperatorio. Protege heridas y cicatrices. Talla 1 para perros medianos.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "mi5",
+      "name": "Collar Isabelino No.2+",
+      "category": "micelanea",
+      "price": 5.5,
+      "desc": "Collar isabelino postoperatorio. Talla 2+ para perros medianos-grandes.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "mi6",
+      "name": "Collar Isabelino No.4",
+      "category": "micelanea",
+      "price": 4.15,
+      "desc": "Collar isabelino postoperatorio. Talla 4 para perros pequeños.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "mi7",
+      "name": "Collar Isabelino No.5",
+      "category": "micelanea",
+      "price": 3.37,
+      "desc": "Collar isabelino postoperatorio. Talla 5 para perros muy pequeños y gatos.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "mi8",
+      "name": "Escuderm Spray",
+      "category": "micelanea",
+      "price": 8.5,
+      "desc": "Solución dérmica para tratamiento de dermatitis. Antibacteriano y antifúngico tópico.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ac1j",
+      "name": "Comedero acero inoxidable S",
+      "category": "accesorios",
+      "price": 4.0,
+      "desc": "Comedero de acero inoxidable para perros y gatos pequeños. Higiénico y duradero.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ac2j",
+      "name": "Comedero acero inoxidable L",
+      "category": "accesorios",
+      "price": 6.5,
+      "desc": "Comedero de acero inoxidable para perros grandes. Alta resistencia y fácil limpieza.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ac3j",
+      "name": "Lima de uñas eléctrica",
+      "category": "accesorios",
+      "price": 4.0,
+      "desc": "Lima eléctrica para uñas de mascotas. Sin dolor, portátil. Funciona con 2 pilas AA.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ac4j",
+      "name": "Pechera con correa talla S",
+      "category": "accesorios",
+      "price": 5.19,
+      "desc": "Pechera ajustable con correa integrada. Talla S para perros pequeños. Cómoda y segura.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ac5j",
+      "name": "Pechera con correa talla M",
+      "category": "accesorios",
+      "price": 5.71,
+      "desc": "Pechera ajustable con correa integrada. Talla M para perros medianos.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ac6j",
+      "name": "Pechera con correa talla L",
+      "category": "accesorios",
+      "price": 6.23,
+      "desc": "Pechera ajustable con correa integrada. Talla L para perros grandes.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ac7j",
+      "name": "Pechera con correa talla XL",
+      "category": "accesorios",
+      "price": 6.75,
+      "desc": "Pechera ajustable con correa integrada. Talla XL para perros muy grandes.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ac8j",
+      "name": "Collar + correa perros grandes",
+      "category": "accesorios",
+      "price": 12.0,
+      "desc": "Set collar y correa resistente para perros grandes. Material duradero de alta calidad.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ac9j",
+      "name": "Calzón sanitario chico",
+      "category": "accesorios",
+      "price": 2.5,
+      "desc": "Calzón sanitario para perritas en celo. Talla chica. Reutilizable y cómodo.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ac10j",
+      "name": "Calzón sanitario mediano",
+      "category": "accesorios",
+      "price": 2.85,
+      "desc": "Calzón sanitario para perritas en celo. Talla mediana.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ac11j",
+      "name": "Calzón sanitario grande",
+      "category": "accesorios",
+      "price": 3.5,
+      "desc": "Calzón sanitario para perritas en celo. Talla grande.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ac12j",
+      "name": "Toallas sanitarias perras",
+      "category": "accesorios",
+      "price": 0.05,
+      "desc": "Toallas sanitarias individuales para perras en celo. Cómodas y absorbentes.",
+      "available": false,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "cp1",
+      "name": "Raticida Storm bloque",
+      "category": "control_plagas",
+      "price": 3.0,
+      "desc": "Rodenticida anticoagulante en bloque. Control efectivo de ratas y ratones en cualquier entorno.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "cp2",
+      "name": "Raticida granulado 100g",
+      "category": "control_plagas",
+      "price": 2.5,
+      "desc": "Raticida en cebo granulado. Palatabilidad alta. Para uso en hogares, granjas y almacenes.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "cp3",
+      "name": "Trampa para ratones",
+      "category": "control_plagas",
+      "price": 1.5,
+      "desc": "Trampa mecánica reutilizable para ratones. Sin veneno. Segura para el entorno familiar.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ma1",
+      "name": "Acondicionador de agua 120ml",
+      "category": "mundo_acuario",
+      "price": 4.0,
+      "desc": "Neutraliza cloro y cloraminas. Acondiciona el agua para peces tropicales y de agua fría.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ma2",
+      "name": "Alimento para peces tropicales",
+      "category": "mundo_acuario",
+      "price": 3.5,
+      "desc": "Hojuelas nutritivas para peces tropicales. Fórmula con proteínas, vitaminas y minerales.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ma3",
+      "name": "Antibiótico para peces",
+      "category": "mundo_acuario",
+      "price": 5.0,
+      "desc": "Tratamiento antibacteriano para peces. Control de infecciones bacterianas en acuarios.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "ma4",
+      "name": "Termómetro para acuario",
+      "category": "mundo_acuario",
+      "price": 2.5,
+      "desc": "Termómetro de vidrio flotante. Medición precisa de temperatura del agua del acuario.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "op1",
+      "name": "Suero fisiológico 500ml",
+      "category": "otros",
+      "price": 4.0,
+      "desc": "Solución de cloruro de sodio 0.9%. Hidratación parenteral, lavado de heridas y mucosas.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "op2",
+      "name": "Jeringa 10ml desechable",
+      "category": "otros",
+      "price": 0.3,
+      "desc": "Jeringa plástica desechable estéril 10ml. Uso veterinario.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "op3",
+      "name": "Guantes de nitrilo (par)",
+      "category": "otros",
+      "price": 0.5,
+      "desc": "Guantes de nitrilo para procedimientos veterinarios. Talla única. Resistentes y ajustables.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "op4",
+      "name": "Gasa estéril 10x10cm",
+      "category": "otros",
+      "price": 0.25,
+      "desc": "Gasa estéril para curación de heridas. Paquete individual. Alta absorción.",
+      "available": true,
+      "popular": false,
+      "image": null
+    },
+    {
+      "id": "op5",
+      "name": "Betadine solución 120ml",
+      "category": "otros",
+      "price": 5.0,
+      "desc": "Solución yodada antiséptica. Desinfección de heridas y piel antes de procedimientos.",
+      "available": true,
+      "popular": false,
+      "image": null
+    }
+  ]
+}
